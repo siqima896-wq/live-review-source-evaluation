@@ -6,7 +6,7 @@ and access requirements of Steam, YouTube, Reddit, and Trustpilot.
 ## Current status
 
 - Steam: two-run live-ingestion test completed.
-- YouTube: sample pull pending.
+- YouTube: two-run, cross-topic sample pull completed.
 - Reddit: sample pull pending.
 - Trustpilot: API access investigation pending.
 
@@ -16,6 +16,7 @@ and access requirements of Steam, YouTube, Reddit, and Trustpilot.
 - [Steam source assessment](docs/steam/steam_source_assessment.md)
 - [Steam Run 1 validation](docs/steam/run1_validation.md)
 - [Steam Run 2 validation](docs/steam/run2_validation.md)
+- [YouTube run summary](results/youtube/run-summary.json)
 
 ## Repository structure
 

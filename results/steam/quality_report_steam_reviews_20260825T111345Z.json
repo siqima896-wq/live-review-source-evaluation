@@ -1,0 +1,24 @@
+{
+  "input_file": "data/steam_reviews_20260825T111345Z.jsonl",
+  "total_records": 921,
+  "unique_review_keys": 921,
+  "duplicate_keys_in_output": 0,
+  "records_by_game": {
+    "Portal 2": 300,
+    "Stardew Valley": 300,
+    "Cyberpunk 2077": 299,
+    "Are You Happy": 22
+  },
+  "languages": {
+    "english": 921
+  },
+  "missing_recommendation_id": 0,
+  "missing_review_text": 2,
+  "missing_timestamp_created": 0,
+  "positive_reviews": 882,
+  "negative_reviews": 39,
+  "positive_percentage": 95.77,
+  "average_review_length": 131.78,
+  "earliest_review": "2025-01-03T14:53:49+00:00",
+  "latest_review": "2026-08-25T08:15:21+00:00"
+}

@@ -1,0 +1,100 @@
+{
+  "run1_file": "data/steam_reviews_20260825T111345Z.jsonl",
+  "run2_file": "data/steam_reviews_20260826T100948Z.jsonl",
+  "run1_total_records": 921,
+  "run2_total_records": 922,
+  "shared_records": 652,
+  "new_records_in_run2": 270,
+  "not_in_run2_window": 269,
+  "updated_records": 2,
+  "run1_positive_reviews": 882,
+  "run1_negative_reviews": 39,
+  "run2_positive_reviews": 884,
+  "run2_negative_reviews": 38,
+  "results_by_game": {
+    "Are You Happy": {
+      "run1_records": 22,
+      "run2_records": 22,
+      "shared_records": 22,
+      "new_in_run2": 0,
+      "not_in_run2_window": 0,
+      "updated_records": 0
+    },
+    "Cyberpunk 2077": {
+      "run1_records": 299,
+      "run2_records": 300,
+      "shared_records": 159,
+      "new_in_run2": 141,
+      "not_in_run2_window": 140,
+      "updated_records": 0
+    },
+    "Portal 2": {
+      "run1_records": 300,
+      "run2_records": 300,
+      "shared_records": 268,
+      "new_in_run2": 32,
+      "not_in_run2_window": 32,
+      "updated_records": 1
+    },
+    "Stardew Valley": {
+      "run1_records": 300,
+      "run2_records": 300,
+      "shared_records": 203,
+      "new_in_run2": 97,
+      "not_in_run2_window": 97,
+      "updated_records": 1
+    }
+  },
+  "sample_new_review_keys": [
+    {
+      "app_id": 620,
+      "recommendation_id": "233653816"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233657814"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233658338"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233659578"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233663019"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233663220"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233667691"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233671673"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233676444"
+    },
+    {
+      "app_id": 620,
+      "recommendation_id": "233677675"
+    }
+  ],
+  "sample_updated_review_keys": [
+    {
+      "app_id": 620,
+      "recommendation_id": "233045908"
+    },
+    {
+      "app_id": 413150,
+      "recommendation_id": "233559094"
+    }
+  ]
+}

@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project secrets and raw review data
+.env
+.env.*
+data/steam/*.jsonl
+data/youtube/*.jsonl
+data/reddit/*.jsonl
+data/trustpilot/*.jsonl

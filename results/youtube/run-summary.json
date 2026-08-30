@@ -1,0 +1,84 @@
+{
+  "source": "youtube",
+  "status": "completed",
+  "evidence_status": "observed",
+  "run_id": "20260830T105613Z",
+  "run_started_at": "2026-08-30T10:56:13.419090+00:00",
+  "collection_configuration": {
+    "endpoint": "commentThreads.list",
+    "order": "time",
+    "text_format": "plainText",
+    "max_results_per_page": 100,
+    "max_pages_per_video": 2,
+    "target_count": 4,
+    "top_level_comments_only": true
+  },
+  "targets": [
+    {
+      "video_id": "TitZV6k8zfA",
+      "topic": "technology_product_review",
+      "title": "The Worst Product I've Ever Reviewed... For Now",
+      "channel": "Marques Brownlee",
+      "status": "success",
+      "pages_fetched": 2,
+      "records_collected": 200,
+      "next_page_token_present_after_final_page": true
+    },
+    {
+      "video_id": "094y1Z2wpJg",
+      "topic": "science_mathematics",
+      "title": "The Simplest Math Problem No One Can Solve - Collatz Conjecture",
+      "channel": "Veritasium",
+      "status": "success",
+      "pages_fetched": 2,
+      "records_collected": 199,
+      "next_page_token_present_after_final_page": true
+    },
+    {
+      "video_id": "R0JKCYZ8hng",
+      "topic": "education_music_neuroscience",
+      "title": "How playing an instrument benefits your brain - Anita Collins",
+      "channel": "TED-Ed",
+      "status": "success",
+      "pages_fetched": 2,
+      "records_collected": 200,
+      "next_page_token_present_after_final_page": true
+    },
+    {
+      "video_id": "jNQXAC9IVRw",
+      "topic": "platform_culture",
+      "title": "Me at the zoo",
+      "channel": "jawed",
+      "status": "success",
+      "pages_fetched": 2,
+      "records_collected": 200,
+      "next_page_token_present_after_final_page": true
+    }
+  ],
+  "quality": {
+    "total_records": 799,
+    "unique_comment_ids": 799,
+    "duplicate_comment_ids": 0,
+    "missing_comment_id": 0,
+    "missing_comment_text": 0,
+    "average_text_length_characters": 108.03,
+    "median_text_length_characters": 51,
+    "comments_with_different_published_and_updated_times": 62
+  },
+  "run_comparison": {
+    "status": "completed",
+    "previous_file": "data/normalized/youtube_comments_20260830T105602Z.jsonl",
+    "shared_records": 799,
+    "new_records": 0,
+    "not_in_current_fixed_window": 0,
+    "changed_records": 0
+  },
+  "access": {
+    "authentication": "API key",
+    "quota_units_used_estimate": 8,
+    "documented_quota_cost_per_page": 1
+  },
+  "errors": [],
+  "normalized_output": "data/normalized/youtube_comments_20260830T105613Z.jsonl",
+  "privacy_note": "Author display names and channel identifiers are not retained. Normalized comment text remains local and is ignored by Git."
+}

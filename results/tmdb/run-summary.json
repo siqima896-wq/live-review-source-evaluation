@@ -1,0 +1,85 @@
+{
+  "source": "tmdb",
+  "status": "completed",
+  "evidence_status": "observed",
+  "run_id": "20260831T143444Z",
+  "run_started_at": "2026-08-31T14:34:44.503823+00:00",
+  "collection_configuration": {
+    "endpoint": "/movie/{movie_id}/reviews",
+    "language": "en-US",
+    "max_pages_per_movie": 2,
+    "target_count": 4
+  },
+  "targets": [
+    {
+      "movie_id": 346698,
+      "topic": "contemporary_popular_culture",
+      "title": "Barbie",
+      "status": "success",
+      "pages_fetched": 1,
+      "records_collected": 18,
+      "api_total_pages": 1,
+      "api_total_results": 18,
+      "more_pages_available_after_test_window": false
+    },
+    {
+      "movie_id": 872585,
+      "topic": "historical_drama",
+      "title": "Oppenheimer",
+      "status": "success",
+      "pages_fetched": 2,
+      "records_collected": 25,
+      "api_total_pages": 2,
+      "api_total_results": 25,
+      "more_pages_available_after_test_window": false
+    },
+    {
+      "movie_id": 496243,
+      "topic": "international_thriller_drama",
+      "title": "Parasite",
+      "status": "success",
+      "pages_fetched": 1,
+      "records_collected": 16,
+      "api_total_pages": 1,
+      "api_total_results": 16,
+      "more_pages_available_after_test_window": false
+    },
+    {
+      "movie_id": 129,
+      "topic": "animation_fantasy",
+      "title": "Spirited Away",
+      "status": "success",
+      "pages_fetched": 1,
+      "records_collected": 2,
+      "api_total_pages": 1,
+      "api_total_results": 2,
+      "more_pages_available_after_test_window": false
+    }
+  ],
+  "quality": {
+    "total_records": 61,
+    "unique_review_ids": 61,
+    "duplicate_review_ids": 0,
+    "missing_review_id": 0,
+    "missing_review_text": 0,
+    "records_with_rating": 53,
+    "records_without_rating": 8,
+    "average_rating_when_present": 7.26,
+    "average_text_length_characters": 1610.84,
+    "median_text_length_characters": 898
+  },
+  "run_comparison": {
+    "status": "not_available_first_run",
+    "previous_file": null,
+    "shared_records": null,
+    "new_records": null,
+    "not_in_current_fixed_window": null,
+    "changed_records": null
+  },
+  "access": {
+    "authentication": "API key"
+  },
+  "errors": [],
+  "normalized_output": "data/normalized/tmdb_reviews_20260831T143444Z.jsonl",
+  "privacy_note": "TMDB author names and usernames are not retained. Normalized review text remains local and is ignored by Git."
+}

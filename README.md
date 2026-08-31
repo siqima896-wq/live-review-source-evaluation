@@ -1,14 +1,13 @@
 # Live Review Source Evaluation
 
 This repository compares the live-ingestion feasibility, analytical value,
-and access requirements of Steam, YouTube, Reddit, and Trustpilot.
+and access requirements of Steam, YouTube, and TMDB.
 
 ## Current status
 
 - Steam: two-run live-ingestion test completed.
 - YouTube: two-run, cross-topic sample pull completed.
-- Reddit: sample pull pending.
-- Trustpilot: API access investigation pending.
+- TMDB: first live sample pull completed (61 reviews from 4 films); second run pending.
 
 ## Project documentation
 
@@ -17,6 +16,17 @@ and access requirements of Steam, YouTube, Reddit, and Trustpilot.
 - [Steam Run 1 validation](docs/steam/run1_validation.md)
 - [Steam Run 2 validation](docs/steam/run2_validation.md)
 - [YouTube run summary](results/youtube/run-summary.json)
+- [TMDB run summary](results/tmdb/run-summary.json)
+
+## Run the TMDB sample pull
+
+1. Add `TMDB_API_KEY=your_key_here` to the local `.env` file.
+2. Run `python3 src/collectors/tmdb_sample_pull.py`.
+3. Run the same command again after 24–72 hours to measure newly observed,
+   changed, and fixed-window-exit records.
+
+The collector writes aggregate evidence to `results/tmdb/run-summary.json`.
+Normalized review text stays under `data/normalized/` and is ignored by Git.
 
 ## Repository structure
 

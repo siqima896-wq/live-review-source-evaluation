@@ -222,6 +222,5 @@ __marimo__/
 # Project secrets and raw review data
 data/steam/*.jsonl
 data/youtube/*.jsonl
-data/reddit/*.jsonl
-data/trustpilot/*.jsonl
+data/tmdb/*.jsonl
 data/normalized/*.jsonl

@@ -2,8 +2,8 @@
   "source": "youtube",
   "status": "completed",
   "evidence_status": "observed",
-  "run_id": "20260830T105613Z",
-  "run_started_at": "2026-08-30T10:56:13.419090+00:00",
+  "run_id": "20260902T235210Z",
+  "run_started_at": "2026-09-02T23:52:10.098279+00:00",
   "collection_configuration": {
     "endpoint": "commentThreads.list",
     "order": "time",
@@ -31,7 +31,7 @@
       "channel": "Veritasium",
       "status": "success",
       "pages_fetched": 2,
-      "records_collected": 199,
+      "records_collected": 200,
       "next_page_token_present_after_final_page": true
     },
     {
@@ -56,21 +56,21 @@
     }
   ],
   "quality": {
-    "total_records": 799,
-    "unique_comment_ids": 799,
+    "total_records": 800,
+    "unique_comment_ids": 800,
     "duplicate_comment_ids": 0,
     "missing_comment_id": 0,
     "missing_comment_text": 0,
-    "average_text_length_characters": 108.03,
-    "median_text_length_characters": 51,
-    "comments_with_different_published_and_updated_times": 62
+    "average_text_length_characters": 109.55,
+    "median_text_length_characters": 52.0,
+    "comments_with_different_published_and_updated_times": 61
   },
   "run_comparison": {
     "status": "completed",
     "previous_file": "data/normalized/youtube_comments_20260830T105602Z.jsonl",
-    "shared_records": 799,
-    "new_records": 0,
-    "not_in_current_fixed_window": 0,
+    "shared_records": 591,
+    "new_records": 209,
+    "not_in_current_fixed_window": 208,
     "changed_records": 0
   },
   "access": {
@@ -79,6 +79,6 @@
     "documented_quota_cost_per_page": 1
   },
   "errors": [],
-  "normalized_output": "data/normalized/youtube_comments_20260830T105613Z.jsonl",
+  "normalized_output": "data/normalized/youtube_comments_20260902T235210Z.jsonl",
   "privacy_note": "Author display names and channel identifiers are not retained. Normalized comment text remains local and is ignored by Git."
 }

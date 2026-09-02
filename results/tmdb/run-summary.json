@@ -2,8 +2,8 @@
   "source": "tmdb",
   "status": "completed",
   "evidence_status": "observed",
-  "run_id": "20260831T143444Z",
-  "run_started_at": "2026-08-31T14:34:44.503823+00:00",
+  "run_id": "20260902T235216Z",
+  "run_started_at": "2026-09-02T23:52:16.219580+00:00",
   "collection_configuration": {
     "endpoint": "/movie/{movie_id}/reviews",
     "language": "en-US",
@@ -69,17 +69,17 @@
     "median_text_length_characters": 898
   },
   "run_comparison": {
-    "status": "not_available_first_run",
-    "previous_file": null,
-    "shared_records": null,
-    "new_records": null,
-    "not_in_current_fixed_window": null,
-    "changed_records": null
+    "status": "completed",
+    "previous_file": "data/normalized/tmdb_reviews_20260831T143444Z.jsonl",
+    "shared_records": 61,
+    "new_records": 0,
+    "not_in_current_fixed_window": 0,
+    "changed_records": 0
   },
   "access": {
     "authentication": "API key"
   },
   "errors": [],
-  "normalized_output": "data/normalized/tmdb_reviews_20260831T143444Z.jsonl",
+  "normalized_output": "data/normalized/tmdb_reviews_20260902T235216Z.jsonl",
   "privacy_note": "TMDB author names and usernames are not retained. Normalized review text remains local and is ignored by Git."
 }

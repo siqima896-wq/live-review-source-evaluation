@@ -6,8 +6,8 @@ and access requirements of Steam, YouTube, and TMDB.
 ## Current status
 
 - Steam: two-run live-ingestion test completed.
-- YouTube: two-run, cross-topic sample pull completed.
-- TMDB: first live sample pull completed (61 reviews from 4 films); second run pending.
+- YouTube: two-run, cross-topic sample pull completed; Run 2 refreshed on 2026-09-02.
+- TMDB: two-run live sample pull completed (61 reviews from 4 films in each run).
 
 ## Project documentation
 
@@ -23,7 +23,8 @@ and access requirements of Steam, YouTube, and TMDB.
 1. Add `TMDB_API_KEY=your_key_here` to the local `.env` file.
 2. Run `python3 src/collectors/tmdb_sample_pull.py`.
 3. Run the same command again after 24–72 hours to measure newly observed,
-   changed, and fixed-window-exit records.
+   changed, and fixed-window-exit records. The initial two-run evaluation is
+   complete; rerunning now starts an additional comparison cycle.
 
 The collector writes aggregate evidence to `results/tmdb/run-summary.json`.
 Normalized review text stays under `data/normalized/` and is ignored by Git.

@@ -77,3 +77,26 @@ every analytical use.
 Supporting aggregate evidence is in the
 [TMDB run summary](../results/tmdb/run-summary.json). Credentials and normalized
 review text remain local and are excluded from Git.
+
+## Recommendation
+
+Move forward with **Steam as the primary live source for the next phase**. Of
+the three sources tested, Steam provides the strongest overall balance of
+ingestion feasibility, analytical value, and access: its public endpoint does
+not require an API key, both live runs completed successfully, Run 2 found 270
+new records and two changed records, and the data includes a direct
+recommend/do-not-recommend label plus useful timestamps and metadata. Its main
+tradeoffs are a gaming-only scope and a strongly positive class imbalance.
+YouTube is a useful secondary source when topic breadth matters, but its
+comments lack a uniform rating. TMDB provides much longer review text and some
+ratings, but the tested sample was small and showed no new or changed records
+in Run 2.
+
+Reddit and Trustpilot were also attempted as candidate sources, but neither
+could be included in the live-pull comparison because API access was not
+obtained during this evaluation. Reddit requires prior API approval through an
+access application before a live pull can be completed. Trustpilot likewise
+requires an access application form for the relevant API credentials. Their
+current access feasibility is therefore weaker than Steam and YouTube. These
+statements describe access findings only; no ingestion or data-quality claims
+are made for Reddit or Trustpilot without live-run evidence.

@@ -1,7 +1,8 @@
 # Live Review Source Evaluation
 
 This repository compares the live-ingestion feasibility, analytical value,
-and access requirements of Steam, YouTube, TMDB, and Google Play.
+and access requirements of Steam, YouTube, TMDB, Google Play, and the Apple App
+Store.
 
 ## Current status
 
@@ -11,6 +12,9 @@ and access requirements of Steam, YouTube, TMDB, and Google Play.
 - Google Play: bounded public-page sample and immediate repeat completed (9
   displayed review cards from 3 app categories); supported cross-app pagination
   is not available.
+- Apple App Store: bounded legacy-feed sample and repeat completed (150 reviews
+  from 3 app categories); technical quality is strong, but recurring use is not
+  recommended without resolving the documented governance restrictions.
 
 ## Project documentation
 
@@ -22,6 +26,19 @@ and access requirements of Steam, YouTube, TMDB, and Google Play.
 - [TMDB run summary](results/tmdb/run-summary.json)
 - [Google Play source assessment](docs/google-play/google_play_source_assessment.md)
 - [Google Play run summary](results/google-play/run-summary.json)
+- [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
+- [Apple App Store run summary](results/apple-app-store/run-summary.json)
+
+## Apple App Store feasibility probe
+
+The Apple collector is retained to document a completed, bounded test of the
+active legacy customer-reviews JSON feed. Do not place it on a recurring
+schedule without permission or governance clearance; see the source assessment
+for the relevant Apple terms and `robots.txt` finding.
+
+The completed command was
+`python3 src/collectors/apple_app_store_sample_pull.py`. Normalized review text
+stays under `data/normalized/` and is ignored by Git.
 
 ## Run the Google Play bounded sample
 

@@ -1,0 +1,121 @@
+{
+  "source": "apple_app_store",
+  "status": "completed",
+  "evidence_status": "observed",
+  "run_id": "20260910T182040Z",
+  "run_started_at": "2026-09-10T18:20:40.294046+00:00",
+  "collection_configuration": {
+    "surface": "legacy iTunes customer-reviews JSON feed",
+    "storefront": "us",
+    "sort_order": "mostrecent",
+    "page_fetched_per_app": 1,
+    "target_count": 3,
+    "requested_records_per_app": 50
+  },
+  "targets": [
+    {
+      "app_id": "570060128",
+      "app_name": "Duolingo: Language Lessons",
+      "category": "Education",
+      "status": "success",
+      "http_status": 200,
+      "records_collected": 50,
+      "page_fetched": 1,
+      "pages_advertised_by_feed": 10,
+      "feed_url": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=570060128/sortby=mostrecent/json",
+      "quality": {
+        "average_star_rating": 3.54,
+        "average_text_length_characters": 202.2,
+        "distinct_app_versions": 1,
+        "oldest_review_timestamp": "2026-09-08T18:20:47-07:00",
+        "newest_review_timestamp": "2026-09-09T05:33:27-07:00",
+        "newest_first_order_observed": true
+      }
+    },
+    {
+      "app_id": "324684580",
+      "app_name": "Spotify: Music and Podcasts",
+      "category": "Music",
+      "status": "success",
+      "http_status": 200,
+      "records_collected": 50,
+      "page_fetched": 1,
+      "pages_advertised_by_feed": 10,
+      "feed_url": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=324684580/sortby=mostrecent/json",
+      "quality": {
+        "average_star_rating": 3.54,
+        "average_text_length_characters": 149.92,
+        "distinct_app_versions": 1,
+        "oldest_review_timestamp": "2026-09-08T21:18:17-07:00",
+        "newest_review_timestamp": "2026-09-09T05:42:54-07:00",
+        "newest_first_order_observed": true
+      }
+    },
+    {
+      "app_id": "368677368",
+      "app_name": "Uber - Request a ride",
+      "category": "Travel",
+      "status": "success",
+      "http_status": 200,
+      "records_collected": 50,
+      "page_fetched": 1,
+      "pages_advertised_by_feed": 10,
+      "feed_url": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=368677368/sortby=mostrecent/json",
+      "quality": {
+        "average_star_rating": 3.86,
+        "average_text_length_characters": 172.28,
+        "distinct_app_versions": 1,
+        "oldest_review_timestamp": "2026-09-08T12:18:41-07:00",
+        "newest_review_timestamp": "2026-09-09T05:38:08-07:00",
+        "newest_first_order_observed": true
+      }
+    }
+  ],
+  "quality": {
+    "total_records": 150,
+    "unique_review_ids": 150,
+    "duplicate_review_ids": 0,
+    "missing_by_field": {
+      "review_id": 0,
+      "review_title": 0,
+      "review_text": 0,
+      "star_rating": 0,
+      "app_version": 0,
+      "updated_at": 0,
+      "vote_sum": 0,
+      "vote_count": 0
+    },
+    "rating_distribution": {
+      "1": 34,
+      "2": 11,
+      "3": 9,
+      "4": 16,
+      "5": 80
+    },
+    "average_star_rating": 3.65,
+    "average_text_length_characters": 174.8,
+    "median_text_length_characters": 102.0
+  },
+  "run_comparison": {
+    "status": "completed",
+    "previous_file": "data/normalized/apple_app_store_reviews_20260910T182023Z.jsonl",
+    "shared_records": 150,
+    "new_records": 0,
+    "not_in_current_recent_page": 0,
+    "changed_records": 0
+  },
+  "access": {
+    "legacy_feed_authentication": "none observed",
+    "official_app_store_connect_api": "JWT authorization from an App Store Connect organization; customer reviews are scoped to apps available to that account"
+  },
+  "limitations": [
+    "The active legacy feed is not part of current App Store Connect API documentation.",
+    "itunes.apple.com robots.txt disallows RSS paths for automated agents.",
+    "The sample covers only the US storefront and one recent page per app.",
+    "Storefront identifies the market feed, not the reviewer's current location.",
+    "The feed contains no developer-response field."
+  ],
+  "errors": [],
+  "normalized_output": "data/normalized/apple_app_store_reviews_20260910T182040Z.jsonl",
+  "privacy_note": "Reviewer nicknames and profile URIs are neither retained nor committed. Review titles and text remain local and are ignored by Git."
+}

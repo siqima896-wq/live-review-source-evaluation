@@ -4,6 +4,8 @@ This table is the main project deliverable. All three original sources have
 completed two live sample pulls. Google Play has since completed a bounded
 public-page sample and immediate repeat smoke test; its evidence is summarized
 separately because it is not equivalent to a supported paginated API pull.
+Apple App Store has also completed a bounded legacy-feed sample and repeat;
+its technical and governance evidence is likewise summarized separately.
 
 | Dimension | Steam | YouTube Comments | TMDB Movie Reviews |
 |---|---|---|---|
@@ -119,11 +121,52 @@ Supporting evidence is in the
 [run summary](../results/google-play/run-summary.json). Review text remains
 local and is excluded from Git.
 
+## Apple App Store addendum
+
+| Dimension | Apple App Store Reviews |
+|---|---|
+| Content type | App reviews |
+| Current evidence | **Observed:** 150-record bounded legacy-feed sample plus short repeat test |
+| Authentication | None for legacy feed; official API requires App Store Connect JWT |
+| Sample targets | 3 apps across education, music, and travel |
+| Records | 150; 50 per app |
+| Shared records in repeat | 150 |
+| New / absent / changed records | 0 / 0 / 0 |
+| Duplicate normalized keys | 0 |
+| Missing core fields | 0 missing IDs, titles, text, ratings, versions, timestamps, or vote fields |
+| Pagination | Feed advertised 10 pages; only page 1 tested |
+| Stable record key | **Observed:** 150 unique review IDs shared in the repeat |
+| Rating/label | 1–5 stars present for all 150 reviews; mean 3.65 |
+| Average text length | 174.80 characters; median 102 |
+| Topic breadth | Broad in principle; three unrelated app categories tested |
+| Recurring-ingestion result | **Technical smoke test passed; governance screen failed pending permission** |
+| Main limitation | Legacy public feed is not in current API docs; Apple terms restrict automated analysis and robots.txt disallows RSS paths |
+
+Apple's legacy feed was the strongest public app-store route technically. It
+returned 50 newest-first reviews per app with a consistent schema, complete
+core fields, version metadata, and no duplicate IDs. The immediate repeat
+returned the same 150 IDs with no observed changes.
+
+The technical result does not establish permission for recurring collection.
+Apple's current documented Customer Reviews API requires App Store Connect JWT
+authorization and applies to apps available to the authenticated account. The
+legacy feed is not part of that current API documentation; Apple Media Services
+terms restrict automated scraping and analysis, and `itunes.apple.com` robots
+rules disallow RSS paths. It should therefore not be scheduled without written
+permission or a licensed data route.
+
+Supporting evidence is in the
+[Apple App Store assessment](apple-app-store/apple_app_store_source_assessment.md)
+and [run summary](../results/apple-app-store/run-summary.json). Review text
+remains local and is excluded from Git.
+
 ## Recommendation
 
-Move forward with **Steam as the primary live source for the next phase**, while
-continuing to the Apple App Store feasibility check before the final decision.
-Of the sources tested so far, Steam provides the strongest overall balance of
+Keep **Steam as the primary operational source for the next phase**. Apple App
+Store is the strongest technical candidate for broad, structured app reviews,
+but it is only a provisional candidate until the team obtains permission or a
+licensed access route for recurring cross-app analysis. Steam currently
+provides the strongest usable balance of
 ingestion feasibility, analytical value, and access: its public endpoint does
 not require an API key, both live runs completed successfully, Run 2 found 270
 new records and two changed records, and the data includes a direct
@@ -135,7 +178,9 @@ ratings, but the tested sample was small and showed no new or changed records
 in Run 2. Google Play offers broader products and a stronger review schema,
 but its supported API is limited to apps controlled by the authenticated
 developer; the public-page route is too small and undocumented to displace
-Steam for the current cross-product requirement.
+Steam for the current cross-product requirement. Apple is technically stronger
+than Google Play's public route, but its governance restrictions prevent a
+production recommendation on current evidence.
 
 Reddit and Trustpilot were also attempted as candidate sources, but neither
 could be included in the live-pull comparison because API access was not

@@ -1,0 +1,7 @@
+source,store_app_id,app_name,category,records,unique_review_ids,average_star_rating,average_text_length_characters,one_star_records,two_star_records,three_star_records,four_star_records,five_star_records,oldest_review_timestamp,newest_review_timestamp
+apple_app_store,324684580,Spotify: Music and Podcasts,Music,50,50,3.54,149.92,11,5,3,8,23,2026-09-08T21:18:17-07:00,2026-09-09T05:42:54-07:00
+apple_app_store,368677368,Uber - Request a ride,Travel,50,50,3.86,172.28,12,2,1,1,34,2026-09-08T12:18:41-07:00,2026-09-09T05:38:08-07:00
+apple_app_store,570060128,Duolingo: Language Lessons,Education,50,50,3.54,202.2,11,4,5,7,23,2026-09-08T18:20:47-07:00,2026-09-09T05:33:27-07:00
+google_play,com.duolingo,Duolingo: Language Lessons,Education,3,3,2,479.33,1,1,1,0,0,2024-11-07,2026-04-20
+google_play,com.spotify.music,Spotify: Music and Podcasts,Music & Audio,3,3,2.67,491,1,0,1,1,0,2025-07-09,2026-04-13
+google_play,com.ubercab,Uber - Request a ride,Maps & Navigation,3,3,1,418,3,0,0,0,0,2024-09-06,2025-05-27

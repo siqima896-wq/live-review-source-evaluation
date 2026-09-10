@@ -28,6 +28,16 @@ Store.
 - [Google Play run summary](results/google-play/run-summary.json)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
+- [Combined app-store data tables](docs/app-store-comparison.md)
+- [Combined source summary CSV](results/app-stores/combined-source-summary.csv)
+- [Combined app summary CSV](results/app-stores/combined-app-summary.csv)
+
+## Combine the Google and Apple samples
+
+Run `python3 src/collectors/combine_app_store_samples.py` after both collectors
+have produced local normalized samples. This creates a local 159-row unified
+record table at `data/normalized/app_store_reviews_combined.csv` and refreshes
+the two text-free aggregate CSV tables under `results/app-stores/`.
 
 ## Apple App Store feasibility probe
 

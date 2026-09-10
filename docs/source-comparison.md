@@ -3,9 +3,9 @@
 This table is the main project deliverable. All three original sources have
 completed two live sample pulls. Google Play has since completed a bounded
 public-page sample and immediate repeat smoke test; its evidence is summarized
-separately because it is not equivalent to a supported paginated API pull.
-Apple App Store has also completed a bounded legacy-feed sample and repeat;
-its technical and governance evidence is likewise summarized separately.
+with Apple below because it is not equivalent to a supported paginated API
+pull. Apple App Store has also completed a bounded legacy-feed sample and
+repeat; the shared table separates technical results from governance status.
 
 | Dimension | Steam | YouTube Comments | TMDB Movie Reviews |
 |---|---|---|---|
@@ -82,26 +82,36 @@ Supporting aggregate evidence is in the
 [TMDB run summary](../results/tmdb/run-summary.json). Credentials and normalized
 review text remain local and are excluded from Git.
 
-## Google Play addendum
+## Combined App Store comparison
 
-| Dimension | Google Play Reviews |
-|---|---|
-| Content type | App reviews |
-| Current evidence | **Observed:** bounded public-page sample plus immediate repeat smoke test |
-| Authentication | None for initial public page; official API requires developer authorization |
-| Sample targets | 3 apps across education, music/audio, and navigation |
-| Records | 9 displayed review cards |
-| Shared records in immediate repeat | 9 |
-| Changed records | 2 helpful-count changes |
-| Duplicate normalized keys | 0 |
-| Missing core fields | 0 missing IDs, text, star ratings, dates, or helpful counts |
-| Stable record key | **Observed:** 9 unique review IDs shared in the immediate repeat |
-| Rating/label | 1–5 stars present for all 9 cards |
-| Average rating | 1.89/5; not representative because displayed cards are curated |
-| Average text length | 462.78 characters |
-| Topic breadth | Broad in principle; three unrelated app categories tested |
-| Recurring-ingestion result | **Not established:** public page lacks supported pagination; official API is for owned apps |
-| Main limitation | No supported general cross-app review API; public HTML is curated and undocumented |
+| Dimension | Google Play Reviews | Apple App Store Reviews |
+|---|---|---|
+| Current evidence | **Observed:** bounded public-page sample plus repeat smoke test | **Observed:** 150-record bounded legacy-feed sample plus repeat smoke test |
+| Authentication | None for initial public page; official API requires developer authorization | None for legacy feed; official API requires App Store Connect JWT |
+| Sample targets | 3 apps across education, music/audio, and navigation | 3 apps across education, music, and travel |
+| Records | 9; 3 per app | 150; 50 per app |
+| Shared records in repeat | 9 | 150 |
+| New / absent / changed | 0 / 0 / 2 | 0 / 0 / 0 |
+| Duplicate review IDs | 0 | 0 |
+| Missing ID / text / rating / timestamp | 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 |
+| Rating | 1–5 stars; mean 1.89 | 1–5 stars; mean 3.65 |
+| Average text length | 462.78 characters | 174.80 characters |
+| Median text length | 485 characters | 102 characters |
+| Review title | Not available | Complete for all 150 records |
+| App version | Not available | Complete for all 150 records |
+| Developer response | 1 observed | Not present in tested feed |
+| Pagination | No supported public pagination | Feed advertised 10 pages; only page 1 tested |
+| Ordering | Curated public-page cards | Newest-first observed for all targets |
+| Topic breadth | Broad in principle; three unrelated categories tested | Broad in principle; three unrelated categories tested |
+| Recurring-ingestion result | **Not established** | **Technical smoke test passed; governance screen failed pending permission** |
+| Main limitation | Public HTML is curated and undocumented | Apple terms restrict automated analysis; robots.txt disallows RSS paths |
+
+The aligned record-level table contains 159 rows and remains local because it
+includes user-generated review text. The committed combined source- and
+app-level tables are documented in the
+[combined app-store data tables](app-store-comparison.md).
+
+### Google Play interpretation
 
 The bounded test retrieved three public review cards each for Duolingo,
 Spotify, and Uber. All nine had unique IDs, text, star ratings, dates, and
@@ -121,26 +131,7 @@ Supporting evidence is in the
 [run summary](../results/google-play/run-summary.json). Review text remains
 local and is excluded from Git.
 
-## Apple App Store addendum
-
-| Dimension | Apple App Store Reviews |
-|---|---|
-| Content type | App reviews |
-| Current evidence | **Observed:** 150-record bounded legacy-feed sample plus short repeat test |
-| Authentication | None for legacy feed; official API requires App Store Connect JWT |
-| Sample targets | 3 apps across education, music, and travel |
-| Records | 150; 50 per app |
-| Shared records in repeat | 150 |
-| New / absent / changed records | 0 / 0 / 0 |
-| Duplicate normalized keys | 0 |
-| Missing core fields | 0 missing IDs, titles, text, ratings, versions, timestamps, or vote fields |
-| Pagination | Feed advertised 10 pages; only page 1 tested |
-| Stable record key | **Observed:** 150 unique review IDs shared in the repeat |
-| Rating/label | 1–5 stars present for all 150 reviews; mean 3.65 |
-| Average text length | 174.80 characters; median 102 |
-| Topic breadth | Broad in principle; three unrelated app categories tested |
-| Recurring-ingestion result | **Technical smoke test passed; governance screen failed pending permission** |
-| Main limitation | Legacy public feed is not in current API docs; Apple terms restrict automated analysis and robots.txt disallows RSS paths |
+### Apple App Store interpretation
 
 Apple's legacy feed was the strongest public app-store route technically. It
 returned 50 newest-first reviews per app with a consistent schema, complete

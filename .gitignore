@@ -224,3 +224,4 @@ data/steam/*.jsonl
 data/youtube/*.jsonl
 data/tmdb/*.jsonl
 data/normalized/*.jsonl
+data/normalized/*.csv

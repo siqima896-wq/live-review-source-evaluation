@@ -1,7 +1,9 @@
 # Live-Source Comparison
 
-This table is the main project deliverable. All three sources have completed
-two live sample pulls.
+This table is the main project deliverable. All three original sources have
+completed two live sample pulls. Google Play has since completed a bounded
+public-page sample and immediate repeat smoke test; its evidence is summarized
+separately because it is not equivalent to a supported paginated API pull.
 
 | Dimension | Steam | YouTube Comments | TMDB Movie Reviews |
 |---|---|---|---|
@@ -78,10 +80,50 @@ Supporting aggregate evidence is in the
 [TMDB run summary](../results/tmdb/run-summary.json). Credentials and normalized
 review text remain local and are excluded from Git.
 
+## Google Play addendum
+
+| Dimension | Google Play Reviews |
+|---|---|
+| Content type | App reviews |
+| Current evidence | **Observed:** bounded public-page sample plus immediate repeat smoke test |
+| Authentication | None for initial public page; official API requires developer authorization |
+| Sample targets | 3 apps across education, music/audio, and navigation |
+| Records | 9 displayed review cards |
+| Shared records in immediate repeat | 9 |
+| Changed records | 2 helpful-count changes |
+| Duplicate normalized keys | 0 |
+| Missing core fields | 0 missing IDs, text, star ratings, dates, or helpful counts |
+| Stable record key | **Observed:** 9 unique review IDs shared in the immediate repeat |
+| Rating/label | 1–5 stars present for all 9 cards |
+| Average rating | 1.89/5; not representative because displayed cards are curated |
+| Average text length | 462.78 characters |
+| Topic breadth | Broad in principle; three unrelated app categories tested |
+| Recurring-ingestion result | **Not established:** public page lacks supported pagination; official API is for owned apps |
+| Main limitation | No supported general cross-app review API; public HTML is curated and undocumented |
+
+The bounded test retrieved three public review cards each for Duolingo,
+Spotify, and Uber. All nine had unique IDs, text, star ratings, dates, and
+helpful counts; one included a developer reply. An immediate repeat shared all
+nine IDs and detected two helpful-count changes. This small curated sample is
+not suitable for population-level sentiment estimates.
+
+Google's supported Reviews API provides structured, token-paginated access for
+a developer's own production apps, but not unrelated apps. Bulk public
+scraping commonly depends on undocumented endpoints and is not a sound basis
+for a supported recurring pipeline. Google Play therefore has strong schema
+and topical breadth but weak access feasibility for this project's
+cross-product requirement.
+
+Supporting evidence is in the
+[Google Play assessment](google-play/google_play_source_assessment.md) and
+[run summary](../results/google-play/run-summary.json). Review text remains
+local and is excluded from Git.
+
 ## Recommendation
 
-Move forward with **Steam as the primary live source for the next phase**. Of
-the three sources tested, Steam provides the strongest overall balance of
+Move forward with **Steam as the primary live source for the next phase**, while
+continuing to the Apple App Store feasibility check before the final decision.
+Of the sources tested so far, Steam provides the strongest overall balance of
 ingestion feasibility, analytical value, and access: its public endpoint does
 not require an API key, both live runs completed successfully, Run 2 found 270
 new records and two changed records, and the data includes a direct
@@ -90,7 +132,10 @@ tradeoffs are a gaming-only scope and a strongly positive class imbalance.
 YouTube is a useful secondary source when topic breadth matters, but its
 comments lack a uniform rating. TMDB provides much longer review text and some
 ratings, but the tested sample was small and showed no new or changed records
-in Run 2.
+in Run 2. Google Play offers broader products and a stronger review schema,
+but its supported API is limited to apps controlled by the authenticated
+developer; the public-page route is too small and undocumented to displace
+Steam for the current cross-product requirement.
 
 Reddit and Trustpilot were also attempted as candidate sources, but neither
 could be included in the live-pull comparison because API access was not

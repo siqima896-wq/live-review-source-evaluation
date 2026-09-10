@@ -1,13 +1,16 @@
 # Live Review Source Evaluation
 
 This repository compares the live-ingestion feasibility, analytical value,
-and access requirements of Steam, YouTube, and TMDB.
+and access requirements of Steam, YouTube, TMDB, and Google Play.
 
 ## Current status
 
 - Steam: two-run live-ingestion test completed.
 - YouTube: two-run, cross-topic sample pull completed; Run 2 refreshed on 2026-09-02.
 - TMDB: two-run live sample pull completed (61 reviews from 4 films in each run).
+- Google Play: bounded public-page sample and immediate repeat completed (9
+  displayed review cards from 3 app categories); supported cross-app pagination
+  is not available.
 
 ## Project documentation
 
@@ -17,6 +20,18 @@ and access requirements of Steam, YouTube, and TMDB.
 - [Steam Run 2 validation](docs/steam/run2_validation.md)
 - [YouTube run summary](results/youtube/run-summary.json)
 - [TMDB run summary](results/tmdb/run-summary.json)
+- [Google Play source assessment](docs/google-play/google_play_source_assessment.md)
+- [Google Play run summary](results/google-play/run-summary.json)
+
+## Run the Google Play bounded sample
+
+1. Run `python3 -m pip install -r requirements.txt`.
+2. Run `python3 src/collectors/google_play_sample_pull.py`.
+
+No credentials are needed because this test reads only the review cards on the
+initial public app-details pages. It deliberately does not call undocumented
+review endpoints and does not provide complete or paginated review coverage.
+Normalized text stays under `data/normalized/` and is ignored by Git.
 
 ## Run the TMDB sample pull
 

@@ -1,0 +1,81 @@
+{
+  "source": "google_play",
+  "status": "completed",
+  "evidence_status": "observed",
+  "run_id": "20260910T024717Z",
+  "run_started_at": "2026-09-10T02:47:17.118870+00:00",
+  "collection_configuration": {
+    "surface": "public app-details HTML only",
+    "language": "en_US",
+    "country": "US",
+    "target_count": 3,
+    "review_limit": "review cards rendered on the initial app page",
+    "undocumented_review_endpoints_used": false
+  },
+  "targets": [
+    {
+      "package_name": "com.duolingo",
+      "app_name": "Duolingo: Language Lessons",
+      "category": "Education",
+      "status": "success",
+      "http_status": 200,
+      "review_cards_collected": 3,
+      "page_url": "https://play.google.com/store/apps/details?id=com.duolingo&hl=en_US&gl=US"
+    },
+    {
+      "package_name": "com.spotify.music",
+      "app_name": "Spotify: Music and Podcasts",
+      "category": "Music & Audio",
+      "status": "success",
+      "http_status": 200,
+      "review_cards_collected": 3,
+      "page_url": "https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_US&gl=US"
+    },
+    {
+      "package_name": "com.ubercab",
+      "app_name": "Uber - Request a ride",
+      "category": "Maps & Navigation",
+      "status": "success",
+      "http_status": 200,
+      "review_cards_collected": 3,
+      "page_url": "https://play.google.com/store/apps/details?id=com.ubercab&hl=en_US&gl=US"
+    }
+  ],
+  "quality": {
+    "total_records": 9,
+    "unique_review_ids": 9,
+    "duplicate_review_ids": 0,
+    "missing_by_field": {
+      "review_id": 0,
+      "review_text": 0,
+      "star_rating": 0,
+      "review_date": 0,
+      "helpful_count": 0
+    },
+    "records_with_developer_reply": 1,
+    "average_star_rating": 1.89,
+    "average_text_length_characters": 462.78,
+    "median_text_length_characters": 485
+  },
+  "run_comparison": {
+    "status": "completed",
+    "previous_file": "data/normalized/google_play_reviews_20260910T024136Z.jsonl",
+    "shared_records": 9,
+    "new_records": 0,
+    "not_in_current_page_sample": 0,
+    "changed_records": 2
+  },
+  "access": {
+    "public_page_authentication": "none",
+    "official_reviews_api": "OAuth or service account with Reply to reviews permission; limited to production apps controlled by the authenticated developer"
+  },
+  "limitations": [
+    "The initial app page exposes only a small curated set of review cards.",
+    "The public HTML structure is undocumented and may change without notice.",
+    "This route does not support dependable pagination or completeness claims.",
+    "Locale parameters do not prove reviewer location or population coverage."
+  ],
+  "errors": [],
+  "normalized_output": "data/normalized/google_play_reviews_20260910T024717Z.jsonl",
+  "privacy_note": "Reviewer names and profile images are neither retained nor committed. Review and developer-reply text remains local and is ignored by Git."
+}

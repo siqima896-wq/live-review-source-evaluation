@@ -20,6 +20,11 @@ The committed, text-free aggregate tables are:
 - [`combined-source-summary.csv`](../results/app-stores/combined-source-summary.csv)
 - [`combined-app-summary.csv`](../results/app-stores/combined-app-summary.csv)
 
+These combined tables retain the original bounded public-page Google sample so
+that the earlier Apple-versus-public-page comparison remains reproducible. A
+later third-party Google Play test is reported separately below and is not
+merged into the 159-row table.
+
 ## Source-level comparison
 
 | Measure | Google Play | Apple App Store |
@@ -82,6 +87,20 @@ returned 50 newest-first records per app from a legacy feed.
 helpful counts and Apple vote sums have identical semantics. Similarly, Google
 review timestamps have date precision while Apple timestamps include time and
 offset.
+
+## Supplemental Google Play third-party test
+
+The later test used the open-source `google-play-scraper` package, not an
+official Google API. It collected 200 reviews per app from Duolingo, Spotify,
+and Uber in each of two immediate runs. Both runs returned 600 unique IDs; all
+600 IDs were shared, with no new, absent, duplicate, or changed records. Two
+100-record pages were observed for every app.
+
+This resolves the earlier technical question about whether an unofficial
+method can provide a meaningful bounded volume and repeat execution. It does
+not resolve permission, long-term stability, completeness, or maintenance
+concerns. The full result and decision impact are documented in the
+[third-party test report](google-play/google_play_third_party_test.md).
 
 ## Regenerate the tables
 

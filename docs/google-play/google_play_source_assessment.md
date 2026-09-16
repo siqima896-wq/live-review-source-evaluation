@@ -21,11 +21,12 @@ the current cross-product public-data requirement**.
   three curated review cards per tested app. Its HTML is undocumented and did
   not provide a supported pagination contract.
 
-Accordingly, Google Play becomes a strong candidate only if the project will
-analyze reviews for apps the team owns and can authorize through Play Console.
-For broad public coverage across unrelated products, it should not replace
-Steam as the primary source on current evidence. Apple App Store should still
-be assessed before the final source decision.
+This initial assessment was later supplemented by a bounded third-party test.
+That test retrieved 200 reviews per app across three unrelated apps in two
+immediate runs, establishing meaningful volume, pagination, and short-term
+repeatability. It did not resolve the unsupported-access and governance
+limitations described here. See the
+[third-party test report](google_play_third_party_test.md).
 
 ## Evidence and access routes
 
@@ -57,12 +58,13 @@ API. The selected cards are not necessarily newest-first or representative of
 the review population.
 
 Common third-party scrapers call undocumented Google Play review/internal
-endpoints. They were not used here. Google's current `robots.txt` disallows
-`/store/getreviews` and `/_`, and Google's general terms prohibit automated
-access that violates machine-readable instructions. Google Play's terms also
-prohibit collecting or harvesting users' personal data, including account
-names. The collector therefore stays on the initial app-details page and
-discards reviewer names and profile images.
+endpoints. They were not used in this initial public-page test; a later,
+separately documented test evaluated one such tool. Google's current
+`robots.txt` disallows `/store/getreviews` and `/_`, and Google's general terms
+prohibit automated access that violates machine-readable instructions. Google
+Play's terms also prohibit collecting or harvesting users' personal data,
+including account names. The collector therefore stays on the initial
+app-details page and discards reviewer names and profile images.
 
 Sources:
 
@@ -135,16 +137,14 @@ reliable recurring-ingestion feed.
 
 ## Recommendation
 
-Do not build the next project phase around bulk public Google Play scraping.
-The source has better topical breadth and a better review schema than Steam,
-YouTube Comments, or TMDB, but it does not currently provide a supported
-cross-app collection route.
+The supplemental test supports Google Play as a conditional choice for a
+bounded research prototype when the team explicitly accepts a third-party,
+unofficial dependency. Do not schedule recurring production collection until
+the relevant access and downstream-use requirements have been reviewed.
 
-If the team owns suitable production apps, obtain Play Console authorization
-and run a second feasibility test through the official API. That test should
-collect up to 100 recent reviews per app, repeat after 24–72 hours, and measure
-new, changed, and no-longer-in-window IDs. Otherwise, proceed to the Apple App
-Store assessment and compare its supported public access with this result.
+If the team owns suitable production apps, the supported alternative remains
+Play Console authorization through the official API. For unrelated public
+apps, no supported Google cross-app review route was identified.
 
 ## Reproduce the bounded public-page sample
 

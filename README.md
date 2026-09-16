@@ -9,9 +9,11 @@ Store.
 - Steam: two-run live-ingestion test completed.
 - YouTube: two-run, cross-topic sample pull completed; Run 2 refreshed on 2026-09-02.
 - TMDB: two-run live sample pull completed (61 reviews from 4 films in each run).
-- Google Play: bounded public-page sample and immediate repeat completed (9
-  displayed review cards from 3 app categories); supported cross-app pagination
-  is not available.
+- Google Play: bounded public-page sample completed (9 displayed cards), plus a
+  third-party open-source test that returned 600 reviews per run across 3 app
+  categories with two-page pagination and 100% ID overlap on immediate repeat.
+  The third-party method is not an official Google API and is not cleared for
+  recurring production use.
 - Apple App Store: bounded legacy-feed sample and repeat completed (150 reviews
   from 3 app categories); technical quality is strong, but recurring use is not
   recommended without resolving the documented governance restrictions.
@@ -26,6 +28,8 @@ Store.
 - [TMDB run summary](results/tmdb/run-summary.json)
 - [Google Play source assessment](docs/google-play/google_play_source_assessment.md)
 - [Google Play run summary](results/google-play/run-summary.json)
+- [Google Play third-party test](docs/google-play/google_play_third_party_test.md)
+- [Google Play third-party aggregate results](results/google-play-third-party/run-summary.json)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)
@@ -59,6 +63,18 @@ No credentials are needed because this test reads only the review cards on the
 initial public app-details pages. It deliberately does not call undocumented
 review endpoints and does not provide complete or paginated review coverage.
 Normalized text stays under `data/normalized/` and is ignored by Git.
+
+## Run the Google Play third-party test
+
+1. Run `python3 -m pip install -r requirements.txt`.
+2. Run `python3 src/collectors/google_play_third_party_test.py`.
+
+This separate test uses the open-source `google-play-scraper` package rather
+than an official Google API. It performs two bounded runs across three apps,
+uses continuation-token pagination, and writes only aggregate evidence to Git.
+Review text and reviewer IDs remain in ignored local files. See the
+[third-party test report](docs/google-play/google_play_third_party_test.md) for
+the access, maintenance, completeness, and governance limitations.
 
 ## Run the TMDB sample pull
 

@@ -2,10 +2,11 @@
 
 This table is the main project deliverable. All three original sources have
 completed two live sample pulls. Google Play has since completed a bounded
-public-page sample and immediate repeat smoke test; its evidence is summarized
-with Apple below because it is not equivalent to a supported paginated API
-pull. Apple App Store has also completed a bounded legacy-feed sample and
-repeat; the shared table separates technical results from governance status.
+public-page sample and a separate third-party open-source pagination test; its
+evidence is summarized with Apple below because neither route is equivalent to
+a supported cross-app API pull. Apple App Store has also completed a bounded
+legacy-feed sample and repeat; the shared table separates technical results
+from governance status.
 
 | Dimension | Steam | YouTube Comments | TMDB Movie Reviews |
 |---|---|---|---|
@@ -86,25 +87,25 @@ review text remain local and are excluded from Git.
 
 | Dimension | Google Play Reviews | Apple App Store Reviews |
 |---|---|---|
-| Current evidence | **Observed:** bounded public-page sample plus repeat smoke test | **Observed:** 150-record bounded legacy-feed sample plus repeat smoke test |
+| Current evidence | **Observed:** 9-card public-page sample; separate third-party test returned 600 records per run | **Observed:** 150-record bounded legacy-feed sample plus repeat smoke test |
 | Authentication | None for initial public page; official API requires developer authorization | None for legacy feed; official API requires App Store Connect JWT |
 | Sample targets | 3 apps across education, music/audio, and navigation | 3 apps across education, music, and travel |
-| Records | 9; 3 per app | 150; 50 per app |
-| Shared records in repeat | 9 | 150 |
-| New / absent / changed | 0 / 0 / 2 | 0 / 0 / 0 |
+| Records | Public page: 9; third party: 600 per run, 200 per app | 150; 50 per app |
+| Shared records in repeat | Public page: 9; third party: 600 | 150 |
+| New / absent / changed | Third-party repeat: 0 / 0 / 0 | 0 / 0 / 0 |
 | Duplicate review IDs | 0 | 0 |
 | Missing ID / text / rating / timestamp | 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 |
-| Rating | 1–5 stars; mean 1.89 | 1–5 stars; mean 3.65 |
-| Average text length | 462.78 characters | 174.80 characters |
-| Median text length | 485 characters | 102 characters |
+| Rating | 1–5 stars; third-party mean 4.00 | 1–5 stars; mean 3.65 |
+| Average text length | Third party: 80.20 characters | 174.80 characters |
+| Median text length | Third party: 30 characters | 102 characters |
 | Review title | Not available | Complete for all 150 records |
 | App version | Not available | Complete for all 150 records |
-| Developer response | 1 observed | Not present in tested feed |
-| Pagination | No supported public pagination | Feed advertised 10 pages; only page 1 tested |
-| Ordering | Curated public-page cards | Newest-first observed for all targets |
+| Developer response | Third party: 17 observed per run | Not present in tested feed |
+| Pagination | No supported public pagination; third-party continuation returned 2 pages per app | Feed advertised 10 pages; only page 1 tested |
+| Ordering | Public page curated; third-party test requested newest | Newest-first observed for all targets |
 | Topic breadth | Broad in principle; three unrelated categories tested | Broad in principle; three unrelated categories tested |
-| Recurring-ingestion result | **Not established** | **Technical smoke test passed; governance screen failed pending permission** |
-| Main limitation | Public HTML is curated and undocumented | Apple terms restrict automated analysis; robots.txt disallows RSS paths |
+| Recurring-ingestion result | **Short-term technical repeat passed through third party; long-term reliability and governance not established** | **Technical smoke test passed; governance screen failed pending permission** |
+| Main limitation | Third-party tool uses undocumented interfaces and is not an official Google API | Apple terms restrict automated analysis; robots.txt disallows RSS paths |
 
 The aligned record-level table contains 159 rows and remains local because it
 includes user-generated review text. The committed combined source- and
@@ -113,23 +114,34 @@ app-level tables are documented in the
 
 ### Google Play interpretation
 
-The bounded test retrieved three public review cards each for Duolingo,
+The initial bounded test retrieved three public review cards each for Duolingo,
 Spotify, and Uber. All nine had unique IDs, text, star ratings, dates, and
 helpful counts; one included a developer reply. An immediate repeat shared all
 nine IDs and detected two helpful-count changes. This small curated sample is
 not suitable for population-level sentiment estimates.
 
+A later test using the third-party open-source `google-play-scraper` package
+retrieved 200 reviews per app in each of two immediate runs. All 600 review IDs
+were unique within each run and shared across runs, and two 100-record pages
+were observed for each target. This establishes meaningful bounded volume,
+multi-app pagination, and short-term repeatability. It does not establish
+official support, historical completeness, long-term stability, or governance
+clearance.
+
 Google's supported Reviews API provides structured, token-paginated access for
 a developer's own production apps, but not unrelated apps. Bulk public
-scraping commonly depends on undocumented endpoints and is not a sound basis
-for a supported recurring pipeline. Google Play therefore has strong schema
-and topical breadth but weak access feasibility for this project's
+scraping depends on undocumented interfaces and is not a sound basis for a
+supported recurring pipeline without an explicit governance decision. Google
+Play therefore has strong schema, topical breadth, and now observed third-party
+technical feasibility, but still lacks supported access for this project's
 cross-product requirement.
 
 Supporting evidence is in the
 [Google Play assessment](google-play/google_play_source_assessment.md) and
-[run summary](../results/google-play/run-summary.json). Review text remains
-local and is excluded from Git.
+[public-page run summary](../results/google-play/run-summary.json). The
+[third-party test report](google-play/google_play_third_party_test.md) and
+[aggregate result](../results/google-play-third-party/run-summary.json) provide
+the supplemental evidence. Review text remains local and is excluded from Git.
 
 ### Apple App Store interpretation
 
@@ -153,25 +165,27 @@ remains local and is excluded from Git.
 
 ## Recommendation
 
-Keep **Steam as the primary operational source for the next phase**. Apple App
-Store is the strongest technical candidate for broad, structured app reviews,
-but it is only a provisional candidate until the team obtains permission or a
-licensed access route for recurring cross-app analysis. Steam currently
-provides the strongest usable balance of
-ingestion feasibility, analytical value, and access: its public endpoint does
-not require an API key, both live runs completed successfully, Run 2 found 270
-new records and two changed records, and the data includes a direct
-recommend/do-not-recommend label plus useful timestamps and metadata. Its main
-tradeoffs are a gaming-only scope and a strongly positive class imbalance.
-YouTube is a useful secondary source when topic breadth matters, but its
+For a **bounded research prototype**, select Google Play through the tested
+third-party package only if the team explicitly accepts an unofficial
+dependency and clears the relevant access and downstream-use requirements. It
+now has the strongest observed combination of broad app coverage, structured
+reviews, bounded volume, pagination, and short-term repeatability among the app
+store routes tested.
+
+Do not treat that conditional prototype choice as approval for a recurring
+production pipeline. Google's supported Reviews API is limited to apps
+controlled by the authenticated developer, while the tested third-party route
+uses undocumented interfaces. Apple's legacy feed also remains blocked by the
+documented governance concerns. If supported cross-app access is mandatory,
+**neither Google Play nor Apple currently passes**, and the source decision
+should pause pending permission or a licensed data route rather than default
+to Steam. Steam remains technically usable, but its gaming-only users,
+products, and topics are too narrow for the stated broad-source objective.
+
+YouTube remains a possible secondary source when topic breadth matters, but
 comments lack a uniform rating. TMDB provides much longer review text and some
 ratings, but the tested sample was small and showed no new or changed records
-in Run 2. Google Play offers broader products and a stronger review schema,
-but its supported API is limited to apps controlled by the authenticated
-developer; the public-page route is too small and undocumented to displace
-Steam for the current cross-product requirement. Apple is technically stronger
-than Google Play's public route, but its governance restrictions prevent a
-production recommendation on current evidence.
+in Run 2.
 
 Reddit and Trustpilot were also attempted as candidate sources, but neither
 could be included in the live-pull comparison because API access was not

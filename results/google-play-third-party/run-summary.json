@@ -1,0 +1,283 @@
+{
+  "source": "google_play",
+  "method": "third_party_open_source_scraper",
+  "official_google_api": false,
+  "tool": {
+    "name": "google-play-scraper",
+    "version": "1.2.7",
+    "project_url": "https://github.com/JoMingyu/google-play-scraper",
+    "license": "MIT"
+  },
+  "evidence_status": "observed",
+  "test_configuration": {
+    "language": "en",
+    "country": "us",
+    "sort": "newest",
+    "target_count": 3,
+    "page_size": 100,
+    "pages_per_target": 2,
+    "maximum_records_per_target_per_run": 200,
+    "repeat_delay_seconds": 2.0
+  },
+  "runs": [
+    {
+      "run_number": 1,
+      "started_at": "2026-09-16T03:26:18.176186+00:00",
+      "finished_at": "2026-09-16T03:26:21.319411+00:00",
+      "elapsed_seconds": 3.143,
+      "status": "completed",
+      "targets": [
+        {
+          "package_name": "com.duolingo",
+          "app_name": "Duolingo: Language Lessons",
+          "category": "Education",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.888
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.522
+            }
+          ]
+        },
+        {
+          "package_name": "com.spotify.music",
+          "app_name": "Spotify: Music and Podcasts",
+          "category": "Music & Audio",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.529
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.527
+            }
+          ]
+        },
+        {
+          "package_name": "com.ubercab",
+          "app_name": "Uber - Request a ride",
+          "category": "Maps & Navigation",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.521
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.156
+            }
+          ]
+        }
+      ],
+      "quality": {
+        "total_records": 600,
+        "unique_review_ids": 600,
+        "duplicate_review_ids": 0,
+        "missing_by_field": {
+          "review_id": 0,
+          "review_text": 0,
+          "star_rating": 0,
+          "review_timestamp": 0,
+          "helpful_count": 0
+        },
+        "records_with_developer_reply": 17,
+        "average_star_rating": 4.0,
+        "average_text_length_characters": 80.2,
+        "median_text_length_characters": 30.0,
+        "newest_review_timestamp": "2026-09-15T03:25:13+00:00",
+        "oldest_review_timestamp": "2026-08-29T09:45:27+00:00"
+      },
+      "errors": [],
+      "local_normalized_output": "data/normalized/google_play_third_party_20260916T032618Z-run1.jsonl"
+    },
+    {
+      "run_number": 2,
+      "started_at": "2026-09-16T03:26:23.335345+00:00",
+      "finished_at": "2026-09-16T03:26:24.885401+00:00",
+      "elapsed_seconds": 1.55,
+      "status": "completed",
+      "targets": [
+        {
+          "package_name": "com.duolingo",
+          "app_name": "Duolingo: Language Lessons",
+          "category": "Education",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.257
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.15
+            }
+          ]
+        },
+        {
+          "package_name": "com.spotify.music",
+          "app_name": "Spotify: Music and Podcasts",
+          "category": "Music & Audio",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.418
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.149
+            }
+          ]
+        },
+        {
+          "package_name": "com.ubercab",
+          "app_name": "Uber - Request a ride",
+          "category": "Maps & Navigation",
+          "status": "success",
+          "pages_requested": 2,
+          "pages_returned": 2,
+          "records": 200,
+          "unique_review_ids": 200,
+          "duplicate_review_ids": 0,
+          "page_metrics": [
+            {
+              "page": 1,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.331
+            },
+            {
+              "page": 2,
+              "records": 100,
+              "continuation_available": true,
+              "elapsed_seconds": 0.245
+            }
+          ]
+        }
+      ],
+      "quality": {
+        "total_records": 600,
+        "unique_review_ids": 600,
+        "duplicate_review_ids": 0,
+        "missing_by_field": {
+          "review_id": 0,
+          "review_text": 0,
+          "star_rating": 0,
+          "review_timestamp": 0,
+          "helpful_count": 0
+        },
+        "records_with_developer_reply": 17,
+        "average_star_rating": 4.0,
+        "average_text_length_characters": 80.2,
+        "median_text_length_characters": 30.0,
+        "newest_review_timestamp": "2026-09-15T03:25:13+00:00",
+        "oldest_review_timestamp": "2026-08-29T09:45:27+00:00"
+      },
+      "errors": [],
+      "local_normalized_output": "data/normalized/google_play_third_party_20260916T032623Z-run2.jsonl"
+    }
+  ],
+  "repeat_comparison": {
+    "shared_records": 600,
+    "new_in_run_2": 0,
+    "absent_from_run_2": 0,
+    "changed_shared_records": 0,
+    "run_1_overlap_rate": 1.0,
+    "run_2_overlap_rate": 1.0,
+    "by_target": [
+      {
+        "package_name": "com.duolingo",
+        "app_name": "Duolingo: Language Lessons",
+        "run_1_records": 200,
+        "run_2_records": 200,
+        "shared_records": 200,
+        "new_in_run_2": 0,
+        "absent_from_run_2": 0,
+        "changed_shared_records": 0
+      },
+      {
+        "package_name": "com.spotify.music",
+        "app_name": "Spotify: Music and Podcasts",
+        "run_1_records": 200,
+        "run_2_records": 200,
+        "shared_records": 200,
+        "new_in_run_2": 0,
+        "absent_from_run_2": 0,
+        "changed_shared_records": 0
+      },
+      {
+        "package_name": "com.ubercab",
+        "app_name": "Uber - Request a ride",
+        "run_1_records": 200,
+        "run_2_records": 200,
+        "shared_records": 200,
+        "new_in_run_2": 0,
+        "absent_from_run_2": 0,
+        "changed_shared_records": 0
+      }
+    ]
+  },
+  "limitations": [
+    "This method uses a third-party open-source package, not an official Google API.",
+    "The package depends on undocumented Google Play interfaces that can change without notice.",
+    "The latest PyPI release tested is from 2024, increasing maintenance and breakage risk.",
+    "The package catches some internal request or parsing exceptions and may return partial results without a detailed error.",
+    "Continuation tokens demonstrate bounded pagination only; they do not prove historical completeness.",
+    "Newest sorting, locale parameters, and returned timestamps do not prove reviewer location or representative sampling.",
+    "An immediate repeat measures short-term reproducibility, not long-term production reliability.",
+    "Successful technical access does not establish permission for recurring collection or downstream use."
+  ],
+  "privacy_note": "Reviewer names and profile images are discarded. Review and reply text is written only to ignored local JSONL files and is not committed."
+}

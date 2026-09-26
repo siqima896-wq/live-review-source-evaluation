@@ -1,0 +1,71 @@
+category,theme,reviews_with_theme,share
+Communication,reliability_or_crashes,21,0.035
+Communication,login_or_account,64,0.1067
+Communication,ads,5,0.0083
+Communication,payment_or_subscription,7,0.0117
+Communication,update_or_version,29,0.0483
+Communication,customer_support,3,0.005
+Communication,performance,15,0.025
+Education,reliability_or_crashes,9,0.015
+Education,login_or_account,25,0.0417
+Education,ads,12,0.02
+Education,payment_or_subscription,7,0.0117
+Education,update_or_version,7,0.0117
+Education,customer_support,0,0.0
+Education,performance,10,0.0167
+Entertainment,reliability_or_crashes,23,0.0383
+Entertainment,login_or_account,70,0.1167
+Entertainment,ads,38,0.0633
+Entertainment,payment_or_subscription,76,0.1267
+Entertainment,update_or_version,36,0.06
+Entertainment,customer_support,3,0.005
+Entertainment,performance,22,0.0367
+Finance,reliability_or_crashes,10,0.0167
+Finance,login_or_account,74,0.1233
+Finance,ads,7,0.0117
+Finance,payment_or_subscription,36,0.06
+Finance,update_or_version,21,0.035
+Finance,customer_support,34,0.0567
+Finance,performance,9,0.015
+Games,reliability_or_crashes,9,0.015
+Games,login_or_account,8,0.0133
+Games,ads,15,0.025
+Games,payment_or_subscription,0,0.0
+Games,update_or_version,13,0.0217
+Games,customer_support,2,0.0033
+Games,performance,9,0.015
+Health & Fitness,reliability_or_crashes,28,0.0467
+Health & Fitness,login_or_account,65,0.1083
+Health & Fitness,ads,6,0.01
+Health & Fitness,payment_or_subscription,77,0.1283
+Health & Fitness,update_or_version,83,0.1383
+Health & Fitness,customer_support,2,0.0033
+Health & Fitness,performance,13,0.0217
+Maps & Navigation,reliability_or_crashes,7,0.0117
+Maps & Navigation,login_or_account,5,0.0083
+Maps & Navigation,ads,1,0.0017
+Maps & Navigation,payment_or_subscription,32,0.0533
+Maps & Navigation,update_or_version,22,0.0367
+Maps & Navigation,customer_support,15,0.025
+Maps & Navigation,performance,6,0.01
+Music & Audio,reliability_or_crashes,10,0.0167
+Music & Audio,login_or_account,0,0.0
+Music & Audio,ads,32,0.0533
+Music & Audio,payment_or_subscription,45,0.075
+Music & Audio,update_or_version,26,0.0433
+Music & Audio,customer_support,1,0.0017
+Music & Audio,performance,8,0.0133
+Productivity,reliability_or_crashes,18,0.03
+Productivity,login_or_account,44,0.0733
+Productivity,ads,92,0.1533
+Productivity,payment_or_subscription,85,0.1417
+Productivity,update_or_version,79,0.1317
+Productivity,customer_support,3,0.005
+Productivity,performance,19,0.0317
+Shopping,reliability_or_crashes,16,0.0267
+Shopping,login_or_account,24,0.04
+Shopping,ads,3,0.005
+Shopping,payment_or_subscription,75,0.125
+Shopping,update_or_version,24,0.04
+Shopping,customer_support,19,0.0317
+Shopping,performance,16,0.0267

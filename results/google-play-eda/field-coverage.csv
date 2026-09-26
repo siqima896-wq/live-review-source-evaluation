@@ -1,0 +1,12 @@
+field,field_type,present_records,missing_records,coverage_rate
+review_id,core,6000,0,1.0
+review_text,core,6000,0,1.0
+star_rating,core,6000,0,1.0
+helpful_count,core,6000,0,1.0
+review_timestamp,core,6000,0,1.0
+review_created_version,optional_or_derived,5142,858,0.857
+app_version,optional_or_derived,5142,858,0.857
+developer_reply_text,optional_or_derived,1086,4914,0.181
+developer_reply_timestamp,optional_or_derived,1086,4914,0.181
+developer_reply_present,optional_or_derived,6000,0,1.0
+ingested_at,optional_or_derived,6000,0,1.0

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="570" viewBox="0 0 1050 570">
+<rect width="100%" height="100%" fill="white"/>
+<text x="525.0" y="38" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">Rating distribution by category</text>
+<text x="218" y="108" text-anchor="end" font-family="Arial" font-size="13">Communication</text>
+<rect x="230.0" y="90" width="175.0" height="23" fill="#b2182b"/>
+<rect x="405.0" y="90" width="32.7" height="23" fill="#ef8a62"/>
+<rect x="437.7" y="90" width="42.0" height="23" fill="#d9d9d9"/>
+<rect x="479.7" y="90" width="54.8" height="23" fill="#67a9cf"/>
+<rect x="534.5" y="90" width="395.5" height="23" fill="#2166ac"/>
+<text x="218" y="146" text-anchor="end" font-family="Arial" font-size="13">Education</text>
+<rect x="230.0" y="128" width="114.3" height="23" fill="#b2182b"/>
+<rect x="344.3" y="128" width="26.8" height="23" fill="#ef8a62"/>
+<rect x="371.2" y="128" width="29.2" height="23" fill="#d9d9d9"/>
+<rect x="400.3" y="128" width="77.0" height="23" fill="#67a9cf"/>
+<rect x="477.3" y="128" width="452.7" height="23" fill="#2166ac"/>
+<text x="218" y="184" text-anchor="end" font-family="Arial" font-size="13">Entertainment</text>
+<rect x="230.0" y="166" width="308.0" height="23" fill="#b2182b"/>
+<rect x="538.0" y="166" width="40.8" height="23" fill="#ef8a62"/>
+<rect x="578.8" y="166" width="37.3" height="23" fill="#d9d9d9"/>
+<rect x="616.2" y="166" width="46.7" height="23" fill="#67a9cf"/>
+<rect x="662.8" y="166" width="267.2" height="23" fill="#2166ac"/>
+<text x="218" y="222" text-anchor="end" font-family="Arial" font-size="13">Finance</text>
+<rect x="230.0" y="204" width="208.8" height="23" fill="#b2182b"/>
+<rect x="438.8" y="204" width="28.0" height="23" fill="#ef8a62"/>
+<rect x="466.8" y="204" width="22.2" height="23" fill="#d9d9d9"/>
+<rect x="489.0" y="204" width="59.5" height="23" fill="#67a9cf"/>
+<rect x="548.5" y="204" width="381.5" height="23" fill="#2166ac"/>
+<text x="218" y="260" text-anchor="end" font-family="Arial" font-size="13">Games</text>
+<rect x="230.0" y="242" width="61.8" height="23" fill="#b2182b"/>
+<rect x="291.8" y="242" width="19.8" height="23" fill="#ef8a62"/>
+<rect x="311.7" y="242" width="26.8" height="23" fill="#d9d9d9"/>
+<rect x="338.5" y="242" width="59.5" height="23" fill="#67a9cf"/>
+<rect x="398.0" y="242" width="532.0" height="23" fill="#2166ac"/>
+<text x="218" y="298" text-anchor="end" font-family="Arial" font-size="13">Health &amp; Fitness</text>
+<rect x="230.0" y="280" width="261.3" height="23" fill="#b2182b"/>
+<rect x="491.3" y="280" width="73.5" height="23" fill="#ef8a62"/>
+<rect x="564.8" y="280" width="77.0" height="23" fill="#d9d9d9"/>
+<rect x="641.8" y="280" width="59.5" height="23" fill="#67a9cf"/>
+<rect x="701.3" y="280" width="228.7" height="23" fill="#2166ac"/>
+<text x="218" y="336" text-anchor="end" font-family="Arial" font-size="13">Maps &amp; Navigation</text>
+<rect x="230.0" y="318" width="142.3" height="23" fill="#b2182b"/>
+<rect x="372.3" y="318" width="24.5" height="23" fill="#ef8a62"/>
+<rect x="396.8" y="318" width="23.3" height="23" fill="#d9d9d9"/>
+<rect x="420.2" y="318" width="29.2" height="23" fill="#67a9cf"/>
+<rect x="449.3" y="318" width="480.7" height="23" fill="#2166ac"/>
+<text x="218" y="374" text-anchor="end" font-family="Arial" font-size="13">Music &amp; Audio</text>
+<rect x="230.0" y="356" width="152.8" height="23" fill="#b2182b"/>
+<rect x="382.8" y="356" width="49.0" height="23" fill="#ef8a62"/>
+<rect x="431.8" y="356" width="38.5" height="23" fill="#d9d9d9"/>
+<rect x="470.3" y="356" width="47.8" height="23" fill="#67a9cf"/>
+<rect x="518.2" y="356" width="411.8" height="23" fill="#2166ac"/>
+<text x="218" y="412" text-anchor="end" font-family="Arial" font-size="13">Productivity</text>
+<rect x="230.0" y="394" width="334.8" height="23" fill="#b2182b"/>
+<rect x="564.8" y="394" width="54.8" height="23" fill="#ef8a62"/>
+<rect x="619.7" y="394" width="32.7" height="23" fill="#d9d9d9"/>
+<rect x="652.3" y="394" width="46.7" height="23" fill="#67a9cf"/>
+<rect x="699.0" y="394" width="231.0" height="23" fill="#2166ac"/>
+<text x="218" y="450" text-anchor="end" font-family="Arial" font-size="13">Shopping</text>
+<rect x="230.0" y="432" width="243.8" height="23" fill="#b2182b"/>
+<rect x="473.8" y="432" width="44.3" height="23" fill="#ef8a62"/>
+<rect x="518.2" y="432" width="25.7" height="23" fill="#d9d9d9"/>
+<rect x="543.8" y="432" width="30.3" height="23" fill="#67a9cf"/>
+<rect x="574.2" y="432" width="355.8" height="23" fill="#2166ac"/>
+<rect x="230" y="515" width="18" height="18" fill="#b2182b"/>
+<text x="254" y="529" font-family="Arial" font-size="12">1 star</text>
+<rect x="340" y="515" width="18" height="18" fill="#ef8a62"/>
+<text x="364" y="529" font-family="Arial" font-size="12">2 star</text>
+<rect x="450" y="515" width="18" height="18" fill="#d9d9d9"/>
+<text x="474" y="529" font-family="Arial" font-size="12">3 star</text>
+<rect x="560" y="515" width="18" height="18" fill="#67a9cf"/>
+<text x="584" y="529" font-family="Arial" font-size="12">4 star</text>
+<rect x="670" y="515" width="18" height="18" fill="#2166ac"/>
+<text x="694" y="529" font-family="Arial" font-size="12">5 star</text>
+<text x="580.0" y="555" text-anchor="middle" font-family="Arial" font-size="13">Share of reviews</text>
+</svg>

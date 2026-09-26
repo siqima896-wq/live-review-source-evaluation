@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="835" viewBox="0 0 1000 835">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="500.0" y="35" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">Mean rating by app (newest 300 reviews)</text>
+<text x="218" y="98" text-anchor="end" font-family="Arial" font-size="13">Disney+</text>
+<rect x="230" y="80" width="211.1" height="22" rx="3" fill="#3973ac"/>
+<text x="449.14" y="97" font-family="Arial" font-size="12">1.53</text>
+<text x="218" y="132" text-anchor="end" font-family="Arial" font-size="13">Evernote</text>
+<rect x="230" y="114" width="214.9" height="22" rx="3" fill="#3973ac"/>
+<text x="452.866" y="131" font-family="Arial" font-size="12">1.56</text>
+<text x="218" y="166" text-anchor="end" font-family="Arial" font-size="13">Amazon Shopping</text>
+<rect x="230" y="148" width="345.0" height="22" rx="3" fill="#3973ac"/>
+<text x="583.0" y="165" font-family="Arial" font-size="12">2.50</text>
+<text x="218" y="200" text-anchor="end" font-family="Arial" font-size="13">MyFitnessPal</text>
+<rect x="230" y="182" width="353.7" height="22" rx="3" fill="#3973ac"/>
+<text x="591.694" y="199" font-family="Arial" font-size="12">2.56</text>
+<text x="218" y="234" text-anchor="end" font-family="Arial" font-size="13">Discord</text>
+<rect x="230" y="216" width="425.5" height="22" rx="3" fill="#3973ac"/>
+<text x="663.454" y="233" font-family="Arial" font-size="12">3.08</text>
+<text x="218" y="268" text-anchor="end" font-family="Arial" font-size="13">Venmo</text>
+<rect x="230" y="250" width="439.3" height="22" rx="3" fill="#3973ac"/>
+<text x="677.2539999999999" y="267" font-family="Arial" font-size="12">3.18</text>
+<text x="218" y="302" text-anchor="end" font-family="Arial" font-size="13">Strava</text>
+<rect x="230" y="284" width="443.0" height="22" rx="3" fill="#3973ac"/>
+<text x="680.98" y="301" font-family="Arial" font-size="12">3.21</text>
+<text x="218" y="336" text-anchor="end" font-family="Arial" font-size="13">YouTube Music</text>
+<rect x="230" y="318" width="477.9" height="22" rx="3" fill="#3973ac"/>
+<text x="715.894" y="335" font-family="Arial" font-size="12">3.46</text>
+<text x="218" y="370" text-anchor="end" font-family="Arial" font-size="13">Khan Academy</text>
+<rect x="230" y="352" width="512.4" height="22" rx="3" fill="#3973ac"/>
+<text x="750.394" y="369" font-family="Arial" font-size="12">3.71</text>
+<text x="218" y="404" text-anchor="end" font-family="Arial" font-size="13">Uber</text>
+<rect x="230" y="386" width="527.2" height="22" rx="3" fill="#3973ac"/>
+<text x="765.16" y="403" font-family="Arial" font-size="12">3.82</text>
+<text x="218" y="438" text-anchor="end" font-family="Arial" font-size="13">Todoist</text>
+<rect x="230" y="420" width="528.1" height="22" rx="3" fill="#3973ac"/>
+<text x="766.126" y="437" font-family="Arial" font-size="12">3.83</text>
+<text x="218" y="472" text-anchor="end" font-family="Arial" font-size="13">Cash App</text>
+<rect x="230" y="454" width="537.2" height="22" rx="3" fill="#3973ac"/>
+<text x="775.2339999999999" y="471" font-family="Arial" font-size="12">3.89</text>
+<text x="218" y="506" text-anchor="end" font-family="Arial" font-size="13">Spotify</text>
+<rect x="230" y="488" width="553.8" height="22" rx="3" fill="#3973ac"/>
+<text x="791.794" y="505" font-family="Arial" font-size="12">4.01</text>
+<text x="218" y="540" text-anchor="end" font-family="Arial" font-size="13">Etsy</text>
+<rect x="230" y="522" width="565.8" height="22" rx="3" fill="#3973ac"/>
+<text x="803.8" y="539" font-family="Arial" font-size="12">4.10</text>
+<text x="218" y="574" text-anchor="end" font-family="Arial" font-size="13">Google Maps</text>
+<rect x="230" y="556" width="569.5" height="22" rx="3" fill="#3973ac"/>
+<text x="807.526" y="573" font-family="Arial" font-size="12">4.13</text>
+<text x="218" y="608" text-anchor="end" font-family="Arial" font-size="13">WhatsApp</text>
+<rect x="230" y="590" width="585.1" height="22" rx="3" fill="#3973ac"/>
+<text x="823.12" y="607" font-family="Arial" font-size="12">4.24</text>
+<text x="218" y="642" text-anchor="end" font-family="Arial" font-size="13">Netflix</text>
+<rect x="230" y="624" width="586.9" height="22" rx="3" fill="#3973ac"/>
+<text x="824.914" y="641" font-family="Arial" font-size="12">4.25</text>
+<text x="218" y="676" text-anchor="end" font-family="Arial" font-size="13">Clash of Clans</text>
+<rect x="230" y="658" width="600.7" height="22" rx="3" fill="#3973ac"/>
+<text x="838.7139999999999" y="675" font-family="Arial" font-size="12">4.35</text>
+<text x="218" y="710" text-anchor="end" font-family="Arial" font-size="13">Duolingo</text>
+<rect x="230" y="692" width="602.1" height="22" rx="3" fill="#3973ac"/>
+<text x="840.094" y="709" font-family="Arial" font-size="12">4.36</text>
+<text x="218" y="744" text-anchor="end" font-family="Arial" font-size="13">Candy Crush Saga</text>
+<rect x="230" y="726" width="613.7" height="22" rx="3" fill="#3973ac"/>
+<text x="851.6859999999999" y="743" font-family="Arial" font-size="12">4.45</text>
+<text x="575.0" y="815" text-anchor="middle" font-family="Arial" font-size="13">Mean star rating (0–5)</text>
+</svg>

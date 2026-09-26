@@ -12,6 +12,8 @@ Store.
 - Google Play: bounded public-page sample completed (9 displayed cards), plus a
   third-party open-source test that returned 600 reviews per run across 3 app
   categories with two-page pagination and 100% ID overlap on immediate repeat.
+  An expanded EDA sample now covers 6,000 reviews from 20 apps across 10
+  categories, with aggregate quality, coverage, app, and category analyses.
   The third-party method is not an official Google API and is not cleared for
   recurring production use.
 - Apple App Store: bounded legacy-feed sample and repeat completed (150 reviews
@@ -30,6 +32,8 @@ Store.
 - [Google Play run summary](results/google-play/run-summary.json)
 - [Google Play third-party test](docs/google-play/google_play_third_party_test.md)
 - [Google Play third-party aggregate results](results/google-play-third-party/run-summary.json)
+- [Google Play exploratory data analysis](docs/google-play/google_play_eda.md)
+- [Google Play EDA aggregate results](results/google-play-eda/analysis-summary.json)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)
@@ -75,6 +79,17 @@ uses continuation-token pagination, and writes only aggregate evidence to Git.
 Review text and reviewer IDs remain in ignored local files. See the
 [third-party test report](docs/google-play/google_play_third_party_test.md) for
 the access, maintenance, completeness, and governance limitations.
+
+## Run the expanded Google Play EDA
+
+1. Run `.venv/bin/python src/collectors/google_play_eda_collection.py --reviews-per-app 300`.
+2. Run `.venv/bin/python src/google_play_eda.py`.
+
+The collector samples 20 apps across 10 categories. Review text remains in the
+ignored local data directory. The analysis writes only aggregate CSV, JSON,
+and SVG outputs under `results/google-play-eda/`; see the
+[EDA report](docs/google-play/google_play_eda.md) for interpretation and
+limitations.
 
 ## Run the TMDB sample pull
 

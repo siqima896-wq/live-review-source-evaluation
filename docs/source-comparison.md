@@ -138,9 +138,9 @@ cross-product requirement.
 
 Supporting evidence is in the
 [Google Play assessment](google-play/google_play_source_assessment.md) and
-[public-page run summary](../results/google-play/run-summary.json). The
+[public-page run summary](../results/google-play-01-public-page-test/run-summary.json). The
 [third-party test report](google-play/google_play_third_party_test.md) and
-[aggregate result](../results/google-play-third-party/run-summary.json) provide
+[aggregate result](../results/google-play-02-third-party-validation/run-summary.json) provide
 the supplemental evidence. Review text remains local and is excluded from Git.
 
 ### Apple App Store interpretation

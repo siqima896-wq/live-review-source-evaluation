@@ -230,7 +230,7 @@ def main() -> None:
 
     run_summaries = {
         "google_play": json.loads(
-            (PROJECT_ROOT / "results/google-play/run-summary.json").read_text()
+            (PROJECT_ROOT / "results/google-play-01-public-page-test/run-summary.json").read_text()
         ),
         "apple_app_store": json.loads(
             (PROJECT_ROOT / "results/apple-app-store/run-summary.json").read_text()

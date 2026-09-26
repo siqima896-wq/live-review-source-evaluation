@@ -22,6 +22,7 @@ Store.
 
 ## Project documentation
 
+- [Results guide](results/README.md)
 - [Source comparison](docs/source-comparison.md)
 - [Steam source assessment](docs/steam/steam_source_assessment.md)
 - [Steam Run 1 validation](docs/steam/run1_validation.md)
@@ -29,11 +30,11 @@ Store.
 - [YouTube run summary](results/youtube/run-summary.json)
 - [TMDB run summary](results/tmdb/run-summary.json)
 - [Google Play source assessment](docs/google-play/google_play_source_assessment.md)
-- [Google Play run summary](results/google-play/run-summary.json)
+- [Google Play public-page test results](results/google-play-01-public-page-test/run-summary.json)
 - [Google Play third-party test](docs/google-play/google_play_third_party_test.md)
-- [Google Play third-party aggregate results](results/google-play-third-party/run-summary.json)
+- [Google Play third-party validation results](results/google-play-02-third-party-validation/run-summary.json)
 - [Google Play exploratory data analysis](docs/google-play/google_play_eda.md)
-- [Google Play EDA aggregate results](results/google-play-eda/analysis-summary.json)
+- [Google Play expanded EDA results](results/google-play-03-expanded-eda/analysis-summary.json)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)
@@ -87,7 +88,7 @@ the access, maintenance, completeness, and governance limitations.
 
 The collector samples 20 apps across 10 categories. Review text remains in the
 ignored local data directory. The analysis writes only aggregate CSV, JSON,
-and SVG outputs under `results/google-play-eda/`; see the
+and SVG outputs under `results/google-play-03-expanded-eda/`; see the
 [EDA report](docs/google-play/google_play_eda.md) for interpretation and
 limitations.
 

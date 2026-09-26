@@ -70,7 +70,7 @@ more than one quarter of records are one-star reviews. Review length is also
 right-skewed; the mean is more than twice the median. Median values and full
 distributions will therefore be more informative than averages alone.
 
-![Rating distribution by category](../../results/google-play-eda/category-rating-distribution.svg)
+![Rating distribution by category](../../results/google-play-03-expanded-eda/category-rating-distribution.svg)
 
 ## Metadata coverage and quality
 
@@ -118,7 +118,7 @@ be larger than the category differences. For example, Entertainment combines
 Disney+ at 1.53 with Netflix at 4.25, and Productivity combines Evernote at
 1.56 with Todoist at 3.83.
 
-![Mean rating by app](../../results/google-play-eda/app-mean-rating.svg)
+![Mean rating by app](../../results/google-play-03-expanded-eda/app-mean-rating.svg)
 
 Developer response behavior also appears to be an app policy rather than a
 uniform property of a category or source. MyFitnessPal replied to 94.0% of its
@@ -126,7 +126,7 @@ sample, Cash App to 90.3%, and Todoist to 89.7%, while many apps had no replies.
 Missing reply text must mean “no reply observed,” not missing collection data,
 when the reply-presence flag is false.
 
-![Developer reply rate by category](../../results/google-play-eda/category-developer-reply-rate.svg)
+![Developer reply rate by category](../../results/google-play-03-expanded-eda/category-developer-reply-rate.svg)
 
 The same fixed count represents very different time coverage. The 300 newest
 WhatsApp reviews cover about 0.1 day, while the 300 Todoist reviews cover about
@@ -178,7 +178,7 @@ Run:
 .venv/bin/python src/google_play_eda.py
 ```
 
-The reproducible aggregate outputs are in `results/google-play-eda/`:
+The reproducible aggregate outputs are in `results/google-play-03-expanded-eda/`:
 
 - `collection-summary.json`: configuration, app metadata snapshots, and
   target-level collection results.

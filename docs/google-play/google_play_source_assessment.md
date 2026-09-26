@@ -89,7 +89,7 @@ three unrelated product categories:
 
 The normalized records remain local under `data/normalized/`. The committed
 aggregate evidence is in
-[`results/google-play/run-summary.json`](../../results/google-play/run-summary.json).
+[`results/google-play-01-public-page-test/run-summary.json`](../../results/google-play-01-public-page-test/run-summary.json).
 Reviewer names and images are not retained.
 
 ## Observed sample quality

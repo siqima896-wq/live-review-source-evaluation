@@ -40,7 +40,7 @@ The package depends on undocumented Google Play interfaces.
 
 Reviewer names and profile images were discarded. Review and developer-reply
 text was retained only in ignored local JSONL files. The committed
-[aggregate summary](../../results/google-play-third-party/run-summary.json)
+[aggregate summary](../../results/google-play-02-third-party-validation/run-summary.json)
 contains no review text or reviewer identifiers.
 
 ## Observed results

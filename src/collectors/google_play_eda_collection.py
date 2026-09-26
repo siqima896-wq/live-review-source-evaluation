@@ -19,7 +19,7 @@ from google_play_scraper import Sort, app, reviews
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data" / "normalized"
-RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-eda"
+RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-03-expanded-eda"
 
 TARGETS = [
     ("com.duolingo", "Duolingo", "Education"),

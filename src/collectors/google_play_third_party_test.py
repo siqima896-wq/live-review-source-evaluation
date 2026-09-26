@@ -23,7 +23,7 @@ from google_play_scraper import Sort, reviews
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 NORMALIZED_DIR = PROJECT_ROOT / "data" / "normalized"
-RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-third-party"
+RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-02-third-party-validation"
 SUMMARY_FILE = RESULTS_DIR / "run-summary.json"
 
 TARGETS = [

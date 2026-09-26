@@ -18,7 +18,7 @@ from statistics import mean, median
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "normalized"
-RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-eda"
+RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-03-expanded-eda"
 
 THEMES = {
     "reliability_or_crashes": ("crash", "crashes", "crashing", "freeze", "freezes", "frozen", "bug", "buggy", "glitch"),

@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Google Play review database entity relationship diagram</title>
+  <desc id="desc">Seven database tables. Each table lists Attribute first, Data Type second, and Key third.</desc>
+  <style>
+    .canvas { fill: #ffffff; }
+    .entity { fill: #ffffff; stroke: #6366f1; stroke-width: 2; }
+    .entity-title { fill: #e0e7ff; stroke: #6366f1; stroke-width: 2; }
+    .column-title { fill: #f1f5f9; }
+    .grid { stroke: #a5b4fc; stroke-width: 1; }
+    .relationship { fill: none; stroke: #64748b; stroke-width: 2; }
+    .table-name { font: 700 16px Arial, sans-serif; fill: #1e1b4b; text-anchor: middle; }
+    .column-name { font: 700 13px Arial, sans-serif; fill: #334155; }
+    .cell { font: 14px Arial, sans-serif; fill: #111827; }
+    .key { font: 700 13px Arial, sans-serif; fill: #4338ca; text-anchor: middle; }
+    .label { font: 13px Arial, sans-serif; fill: #475569; text-anchor: middle; paint-order: stroke; stroke: #ffffff; stroke-width: 5; }
+    .cardinality { font: 700 13px Arial, sans-serif; fill: #334155; paint-order: stroke; stroke: #ffffff; stroke-width: 4; }
+  </style>
+
+  <rect class="canvas" width="1600" height="1040" />
+
+  <!-- Relationships are drawn first so entity boxes remain legible. -->
+  <path class="relationship" d="M460 155 H590" />
+  <text class="label" x="525" y="144">is collected in</text>
+  <text class="cardinality" x="470" y="151">1</text>
+  <text class="cardinality" x="551" y="151">0..*</text>
+
+  <path class="relationship" d="M460 495 H520 V260 H590" />
+  <text class="label" x="525" y="360">includes</text>
+  <text class="cardinality" x="470" y="491">1</text>
+  <text class="cardinality" x="551" y="256">0..*</text>
+
+  <path class="relationship" d="M1020 155 H1140" />
+  <text class="label" x="1080" y="144">captures</text>
+  <text class="cardinality" x="1030" y="151">1</text>
+  <text class="cardinality" x="1094" y="151">0..1</text>
+
+  <path class="relationship" d="M460 210 H500 V570 H590" />
+  <text class="label" x="517" y="555">receives</text>
+  <text class="cardinality" x="470" y="206">1</text>
+  <text class="cardinality" x="551" y="566">0..*</text>
+
+  <path class="relationship" d="M1020 250 H1085 V500 H1140" />
+  <text class="label" x="1096" y="380">contains</text>
+  <text class="cardinality" x="1030" y="246">1</text>
+  <text class="cardinality" x="1101" y="496">0..*</text>
+
+  <path class="relationship" d="M1020 605 H1140" />
+  <text class="label" x="1080" y="594">is observed in</text>
+  <text class="cardinality" x="1030" y="601">1</text>
+  <text class="cardinality" x="1101" y="601">0..*</text>
+
+  <path class="relationship" d="M805 710 V820" />
+  <text class="label" x="855" y="770">may have</text>
+  <text class="cardinality" x="815" y="728">1</text>
+  <text class="cardinality" x="815" y="811">0..1</text>
+
+  <!-- APPS -->
+  <g transform="translate(30 40)">
+    <rect class="entity" width="430" height="204" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">APPS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M250 36V204 M370 36V204" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">app_id</text><text class="cell" x="260" y="83">bigint</text><text class="key" x="400" y="83">PK</text>
+    <text class="cell" x="10" y="111">source</text><text class="cell" x="260" y="111">varchar</text><text class="key" x="400" y="111">UQ</text>
+    <text class="cell" x="10" y="139">package_name</text><text class="cell" x="260" y="139">varchar</text><text class="key" x="400" y="139">UQ</text>
+    <text class="cell" x="10" y="167">display_name</text><text class="cell" x="260" y="167">text</text>
+    <text class="cell" x="10" y="195">category_name</text><text class="cell" x="260" y="195">varchar</text>
+  </g>
+
+  <!-- COLLECTION_RUNS -->
+  <g transform="translate(30 360)">
+    <rect class="entity" width="430" height="316" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">COLLECTION_RUNS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M0 204H430 M0 232H430 M0 260H430 M0 288H430 M250 36V316 M370 36V316" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">collection_run_id</text><text class="cell" x="260" y="83">uuid</text><text class="key" x="400" y="83">PK</text>
+    <text class="cell" x="10" y="111">collection_method</text><text class="cell" x="260" y="111">varchar</text>
+    <text class="cell" x="10" y="139">started_at</text><text class="cell" x="260" y="139">timestamptz</text>
+    <text class="cell" x="10" y="167">finished_at</text><text class="cell" x="260" y="167">timestamptz</text>
+    <text class="cell" x="10" y="195">requested_language</text><text class="cell" x="260" y="195">varchar</text>
+    <text class="cell" x="10" y="223">requested_country</text><text class="cell" x="260" y="223">char</text>
+    <text class="cell" x="10" y="251">sort_order</text><text class="cell" x="260" y="251">varchar</text>
+    <text class="cell" x="10" y="279">reviews_requested_per_app</text><text class="cell" x="260" y="279">integer</text>
+    <text class="cell" x="10" y="307">status</text><text class="cell" x="260" y="307">varchar</text>
+  </g>
+
+  <!-- COLLECTION_TARGETS -->
+  <g transform="translate(590 40)">
+    <rect class="entity" width="430" height="260" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">COLLECTION_TARGETS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M0 204H430 M0 232H430 M250 36V260 M370 36V260" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">collection_run_id</text><text class="cell" x="260" y="83">uuid</text><text class="key" x="400" y="83">PK, FK</text>
+    <text class="cell" x="10" y="111">app_id</text><text class="cell" x="260" y="111">bigint</text><text class="key" x="400" y="111">PK, FK</text>
+    <text class="cell" x="10" y="139">status</text><text class="cell" x="260" y="139">varchar</text>
+    <text class="cell" x="10" y="167">records_collected</text><text class="cell" x="260" y="167">integer</text>
+    <text class="cell" x="10" y="195">oldest_review_at</text><text class="cell" x="260" y="195">timestamptz</text>
+    <text class="cell" x="10" y="223">newest_review_at</text><text class="cell" x="260" y="223">timestamptz</text>
+    <text class="cell" x="10" y="251">observed_window_days</text><text class="cell" x="260" y="251">numeric</text>
+  </g>
+
+  <!-- APP_SNAPSHOTS -->
+  <g transform="translate(1140 40)">
+    <rect class="entity" width="430" height="260" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">APP_SNAPSHOTS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M0 204H430 M0 232H430 M250 36V260 M370 36V260" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">app_snapshot_id</text><text class="cell" x="260" y="83">bigint</text><text class="key" x="400" y="83">PK</text>
+    <text class="cell" x="10" y="111">collection_run_id</text><text class="cell" x="260" y="111">uuid</text><text class="key" x="400" y="111">FK</text>
+    <text class="cell" x="10" y="139">app_id</text><text class="cell" x="260" y="139">bigint</text><text class="key" x="400" y="139">FK</text>
+    <text class="cell" x="10" y="167">store_score</text><text class="cell" x="260" y="167">numeric</text>
+    <text class="cell" x="10" y="195">ratings_count</text><text class="cell" x="260" y="195">bigint</text>
+    <text class="cell" x="10" y="223">real_installs</text><text class="cell" x="260" y="223">bigint</text>
+    <text class="cell" x="10" y="251">version_name</text><text class="cell" x="260" y="251">text</text>
+  </g>
+
+  <!-- REVIEWS -->
+  <g transform="translate(590 450)">
+    <rect class="entity" width="430" height="260" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">REVIEWS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M0 204H430 M0 232H430 M250 36V260 M370 36V260" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">review_pk</text><text class="cell" x="260" y="83">bigint</text><text class="key" x="400" y="83">PK</text>
+    <text class="cell" x="10" y="111">app_id</text><text class="cell" x="260" y="111">bigint</text><text class="key" x="400" y="111">FK</text>
+    <text class="cell" x="10" y="139">source_review_id</text><text class="cell" x="260" y="139">text</text><text class="key" x="400" y="139">UQ</text>
+    <text class="cell" x="10" y="167">review_text</text><text class="cell" x="260" y="167">text</text>
+    <text class="cell" x="10" y="195">star_rating</text><text class="cell" x="260" y="195">smallint</text>
+    <text class="cell" x="10" y="223">review_version</text><text class="cell" x="260" y="223">text</text>
+    <text class="cell" x="10" y="251">reviewed_at</text><text class="cell" x="260" y="251">timestamptz</text>
+  </g>
+
+  <!-- REVIEW_OBSERVATIONS -->
+  <g transform="translate(1140 430)">
+    <rect class="entity" width="430" height="260" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">REVIEW_OBSERVATIONS</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M0 176H430 M0 204H430 M0 232H430 M250 36V260 M370 36V260" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">collection_run_id</text><text class="cell" x="260" y="83">uuid</text><text class="key" x="400" y="83">PK, FK</text>
+    <text class="cell" x="10" y="111">review_pk</text><text class="cell" x="260" y="111">bigint</text><text class="key" x="400" y="111">PK, FK</text>
+    <text class="cell" x="10" y="139">app_id</text><text class="cell" x="260" y="139">bigint</text><text class="key" x="400" y="139">FK</text>
+    <text class="cell" x="10" y="167">observed_at</text><text class="cell" x="260" y="167">timestamptz</text>
+    <text class="cell" x="10" y="195">helpful_count</text><text class="cell" x="260" y="195">integer</text>
+    <text class="cell" x="10" y="223">developer_reply_present</text><text class="cell" x="260" y="223">boolean</text>
+    <text class="cell" x="10" y="251">content_hash</text><text class="cell" x="260" y="251">char</text>
+  </g>
+
+  <!-- DEVELOPER_REPLIES -->
+  <g transform="translate(590 820)">
+    <rect class="entity" width="430" height="176" />
+    <rect class="entity-title" width="430" height="36" />
+    <text class="table-name" x="215" y="24">DEVELOPER_REPLIES</text>
+    <rect class="column-title" y="36" width="430" height="28" />
+    <path class="grid" d="M0 64H430 M0 92H430 M0 120H430 M0 148H430 M250 36V176 M370 36V176" />
+    <text class="column-name" x="10" y="55">Attribute</text><text class="column-name" x="260" y="55">Data Type</text><text class="column-name" x="382" y="55">Key</text>
+    <text class="cell" x="10" y="83">developer_reply_id</text><text class="cell" x="260" y="83">bigint</text><text class="key" x="400" y="83">PK</text>
+    <text class="cell" x="10" y="111">review_pk</text><text class="cell" x="260" y="111">bigint</text><text class="key" x="400" y="111">FK, UQ</text>
+    <text class="cell" x="10" y="139">reply_text</text><text class="cell" x="260" y="139">text</text>
+    <text class="cell" x="10" y="167">replied_at</text><text class="cell" x="260" y="167">timestamptz</text>
+  </g>
+</svg>

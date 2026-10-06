@@ -49,82 +49,11 @@ The executable PostgreSQL DDL is in
 
 ## 3. Entity-relationship diagram
 
-The diagram is intentionally limited to key fields. The data dictionary in the
+The diagram is intentionally limited to key fields. Within each entity, the
+columns are ordered **Attribute | Data Type | Key**. The data dictionary in the
 next section is authoritative for the full column definitions.
 
-```mermaid
-erDiagram
-    direction LR
-
-    APPS ||--o{ COLLECTION_TARGETS : is_collected_in
-    COLLECTION_RUNS ||--o{ COLLECTION_TARGETS : includes
-    COLLECTION_TARGETS ||--o| APP_SNAPSHOTS : captures
-    APPS ||--o{ REVIEWS : receives
-    COLLECTION_TARGETS ||--o{ REVIEW_OBSERVATIONS : contains
-    REVIEWS ||--o{ REVIEW_OBSERVATIONS : is_observed_in
-    REVIEWS ||--o| DEVELOPER_REPLIES : may_have
-
-    APPS {
-        bigint app_id PK
-        varchar source
-        varchar package_name
-        text display_name
-        varchar category_name
-    }
-    COLLECTION_RUNS {
-        uuid collection_run_id PK
-        varchar collection_method
-        timestamptz started_at
-        timestamptz finished_at
-        varchar requested_language
-        char requested_country
-        varchar sort_order
-        integer reviews_requested_per_app
-        varchar status
-    }
-    COLLECTION_TARGETS {
-        uuid collection_run_id PK, FK
-        bigint app_id PK, FK
-        varchar status
-        integer records_collected
-        timestamptz oldest_review_at
-        timestamptz newest_review_at
-        numeric observed_window_days
-    }
-    APP_SNAPSHOTS {
-        bigint app_snapshot_id PK
-        uuid collection_run_id FK
-        bigint app_id FK
-        numeric store_score
-        bigint ratings_count
-        bigint real_installs
-        text version_name
-    }
-    REVIEWS {
-        bigint review_pk PK
-        bigint app_id FK
-        text source_review_id
-        text review_text
-        smallint star_rating
-        text review_version
-        timestamptz reviewed_at
-    }
-    REVIEW_OBSERVATIONS {
-        uuid collection_run_id PK, FK
-        bigint review_pk PK, FK
-        bigint app_id FK
-        timestamptz observed_at
-        integer helpful_count
-        boolean developer_reply_present
-        char content_hash
-    }
-    DEVELOPER_REPLIES {
-        bigint developer_reply_id PK
-        bigint review_pk FK, UK
-        text reply_text
-        timestamptz replied_at
-    }
-```
+![Google Play review database ERD with Attribute, Data Type, and Key columns](google_play_erd.svg)
 
 ## 4. Data dictionary
 

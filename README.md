@@ -35,6 +35,8 @@ Store.
 - [Google Play third-party validation results](results/google-play-02-third-party-validation/run-summary.json)
 - [Google Play exploratory data analysis](docs/google-play/google_play_eda.md)
 - [Google Play expanded EDA results](results/google-play-03-expanded-eda/analysis-summary.json)
+- [Google Play database schema proposal](docs/google-play/google_play_database_schema.md)
+- [Google Play PostgreSQL schema](docs/google-play/google_play_schema.sql)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)

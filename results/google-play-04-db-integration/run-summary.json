@@ -1,0 +1,161 @@
+{
+  "test": "bounded live Google Play to PostgreSQL integration",
+  "source": "google_play",
+  "method": "third_party_open_source_scraper",
+  "official_google_api": false,
+  "collector": {
+    "name": "google-play-scraper",
+    "version": "1.2.7"
+  },
+  "database": {
+    "product": "PostgreSQL",
+    "schema_version": "baseline-v1"
+  },
+  "configuration": {
+    "apps": [
+      {
+        "package_name": "com.duolingo",
+        "display_name": "Duolingo: Language Lessons",
+        "category_name": "Education"
+      },
+      {
+        "package_name": "com.spotify.music",
+        "display_name": "Spotify: Music and Podcasts",
+        "category_name": "Music & Audio"
+      }
+    ],
+    "reviews_requested_per_app": 50,
+    "runs": 2,
+    "language": "en",
+    "country": "US",
+    "sort": "newest"
+  },
+  "runs": [
+    {
+      "run_number": 1,
+      "collection_run_id": "ccebea7b-33e7-4c57-a433-ba47c6179f79",
+      "status": "completed",
+      "started_at": "2026-10-12T02:13:38.455221+00:00",
+      "finished_at": "2026-10-12T02:13:39.825988+00:00",
+      "elapsed_seconds": 1.371,
+      "targets": [
+        {
+          "package_name": "com.duolingo",
+          "display_name": "Duolingo: Language Lessons",
+          "category_name": "Education",
+          "status": "success",
+          "requested": 50,
+          "fetched": 50,
+          "unique_review_ids_fetched": 50,
+          "mapped_successfully": 50,
+          "inserted_new": 50,
+          "updated_existing": 0,
+          "observations_inserted": 50,
+          "developer_replies_stored": 0,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-10T19:35:46+00:00",
+          "newest_review_at": "2026-10-10T21:11:26+00:00",
+          "observed_window_days": 0.0664,
+          "elapsed_seconds": 0.693,
+          "failures": []
+        },
+        {
+          "package_name": "com.spotify.music",
+          "display_name": "Spotify: Music and Podcasts",
+          "category_name": "Music & Audio",
+          "status": "success",
+          "requested": 50,
+          "fetched": 50,
+          "unique_review_ids_fetched": 50,
+          "mapped_successfully": 50,
+          "inserted_new": 50,
+          "updated_existing": 0,
+          "observations_inserted": 50,
+          "developer_replies_stored": 4,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-10T18:13:12+00:00",
+          "newest_review_at": "2026-10-10T21:09:46+00:00",
+          "observed_window_days": 0.1226,
+          "elapsed_seconds": 0.417,
+          "failures": []
+        }
+      ],
+      "totals": {
+        "fetched": 100,
+        "mapped_successfully": 100,
+        "inserted_new": 100,
+        "updated_existing": 0,
+        "observations_inserted": 100,
+        "failed_records": 0
+      }
+    },
+    {
+      "run_number": 2,
+      "collection_run_id": "6c5aeb30-e253-461b-9865-81281445ad60",
+      "status": "completed",
+      "started_at": "2026-10-12T02:13:41.831857+00:00",
+      "finished_at": "2026-10-12T02:13:42.847824+00:00",
+      "elapsed_seconds": 1.016,
+      "targets": [
+        {
+          "package_name": "com.duolingo",
+          "display_name": "Duolingo: Language Lessons",
+          "category_name": "Education",
+          "status": "success",
+          "requested": 50,
+          "fetched": 50,
+          "unique_review_ids_fetched": 50,
+          "mapped_successfully": 50,
+          "inserted_new": 0,
+          "updated_existing": 50,
+          "observations_inserted": 50,
+          "developer_replies_stored": 0,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-10T19:35:46+00:00",
+          "newest_review_at": "2026-10-10T21:11:26+00:00",
+          "observed_window_days": 0.0664,
+          "elapsed_seconds": 0.375,
+          "failures": []
+        },
+        {
+          "package_name": "com.spotify.music",
+          "display_name": "Spotify: Music and Podcasts",
+          "category_name": "Music & Audio",
+          "status": "success",
+          "requested": 50,
+          "fetched": 50,
+          "unique_review_ids_fetched": 50,
+          "mapped_successfully": 50,
+          "inserted_new": 0,
+          "updated_existing": 50,
+          "observations_inserted": 50,
+          "developer_replies_stored": 4,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-10T18:13:12+00:00",
+          "newest_review_at": "2026-10-10T21:09:46+00:00",
+          "observed_window_days": 0.1226,
+          "elapsed_seconds": 0.381,
+          "failures": []
+        }
+      ],
+      "totals": {
+        "fetched": 100,
+        "mapped_successfully": 100,
+        "inserted_new": 0,
+        "updated_existing": 100,
+        "observations_inserted": 100,
+        "failed_records": 0
+      }
+    }
+  ],
+  "privacy_note": "Reviewer names and profile images were not retained. Review text is stored only in the local database and is not included in this summary.",
+  "sampling_note": "Newest English-language reviews returned for the US storefront are a bounded convenience sample, not a representative population sample."
+}

@@ -13,7 +13,9 @@ Store.
   third-party open-source test that returned 600 reviews per run across 3 app
   categories with two-page pagination and 100% ID overlap on immediate repeat.
   An expanded EDA sample now covers 6,000 reviews from 20 apps across 10
-  categories, with aggregate quality, coverage, app, and category analyses.
+  categories, with aggregate quality, coverage, app, and category analyses. A
+  two-App PostgreSQL integration test now also verifies live collection,
+  transactional loading, repeat-run deduplication, and database constraints.
   The third-party method is not an official Google API and is not cleared for
   recurring production use.
 - Apple App Store: bounded legacy-feed sample and repeat completed (150 reviews
@@ -37,6 +39,7 @@ Store.
 - [Google Play expanded EDA results](results/google-play-03-expanded-eda/analysis-summary.json)
 - [Google Play database schema proposal](docs/google-play/google_play_database_schema.md)
 - [Google Play PostgreSQL schema](docs/google-play/google_play_schema.sql)
+- [Google Play database integration test](docs/google-play/google_play_integration_test.md)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)
@@ -93,6 +96,41 @@ ignored local data directory. The analysis writes only aggregate CSV, JSON,
 and SVG outputs under `results/google-play-03-expanded-eda/`; see the
 [EDA report](docs/google-play/google_play_eda.md) for interpretation and
 limitations.
+
+## Run the Google Play database integration
+
+This bounded integration uses PostgreSQL 15+, two Apps, and 50 live reviews per
+App. It performs two immediate runs to verify review upserts and per-run
+observations. The default connection is
+`postgresql://localhost:5433/sciencia_google_play`; set
+`GOOGLE_PLAY_DATABASE_URL` to use a different local database.
+
+1. Install dependencies with `.venv/bin/python -m pip install -r requirements.txt`.
+2. Create the database and apply the schema. With Postgres.app on port 5433:
+
+   ```bash
+   PSQL_BIN=/Applications/Postgres.app/Contents/Versions/15/bin/psql \
+     PGPORT=5433 scripts/setup_google_play_db.sh
+   ```
+
+3. Run two live collection and load cycles:
+
+   ```bash
+   .venv/bin/python src/google_play_db_integration.py \
+     --reviews-per-app 50 --runs 2
+   ```
+
+4. Reconcile the loaded rows and test constraints:
+
+   ```bash
+   .venv/bin/python src/google_play_db_validation.py
+   ```
+
+The setup script is non-destructive when the database already exists. The
+collector keeps review text only in the local database; committed JSON files
+contain aggregate evidence and record identifiers only for mapping failures.
+See the [integration report](docs/google-play/google_play_integration_test.md)
+for the completed run and interpretation.
 
 ## Run the TMDB sample pull
 

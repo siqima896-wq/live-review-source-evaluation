@@ -26,7 +26,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = PROJECT_ROOT / "results" / "google-play-04-db-integration"
 SUMMARY_FILE = RESULTS_DIR / "run-summary.json"
 
-TARGETS = (
+BASELINE_TARGETS = (
     {
         "package_name": "com.duolingo",
         "display_name": "Duolingo: Language Lessons",
@@ -38,6 +38,30 @@ TARGETS = (
         "category_name": "Music & Audio",
     },
 )
+
+RECURRING_TARGETS = (
+    *BASELINE_TARGETS,
+    {
+        "package_name": "com.zhiliaoapp.musically",
+        "display_name": "TikTok",
+        "category_name": "Social",
+    },
+    {
+        "package_name": "com.discord",
+        "display_name": "Discord: Talk, Play, Hang Out",
+        "category_name": "Communication",
+    },
+    {
+        "package_name": "com.dd.doordash",
+        "display_name": "DoorDash: Food, Grocery, More",
+        "category_name": "Food & Drink",
+    },
+)
+
+TARGET_PROFILES = {
+    "baseline": BASELINE_TARGETS,
+    "recurring": RECURRING_TARGETS,
+}
 
 
 def utc_now() -> datetime:
@@ -267,6 +291,9 @@ def load_target(
     )
     inserted_new = 0
     updated_existing = 0
+    changed_existing = 0
+    unchanged_existing = 0
+    change_status_unknown = 0
     replies_stored = 0
     version_mismatches = 0
 
@@ -292,9 +319,41 @@ def load_target(
             insert_snapshot(cursor, run_id, app_id, details, observed_at)
 
             for record in normalized_by_id.values():
+                cursor.execute(
+                    """
+                    SELECT review_pk
+                    FROM reviews
+                    WHERE app_id = %s AND source_review_id = %s
+                    """,
+                    (app_id, record["source_review_id"]),
+                )
+                existing_review = cursor.fetchone()
+                previous_hash = None
+                if existing_review is not None:
+                    cursor.execute(
+                        """
+                        SELECT content_hash
+                        FROM review_observations
+                        WHERE review_pk = %s
+                        ORDER BY observed_at DESC
+                        LIMIT 1
+                        """,
+                        (existing_review[0],),
+                    )
+                    previous_observation = cursor.fetchone()
+                    if previous_observation is not None:
+                        previous_hash = previous_observation[0]
+
                 review_pk, inserted = upsert_review(cursor, app_id, record)
                 inserted_new += int(inserted)
                 updated_existing += int(not inserted)
+                if not inserted:
+                    if previous_hash is None:
+                        change_status_unknown += 1
+                    elif previous_hash == record["content_hash"]:
+                        unchanged_existing += 1
+                    else:
+                        changed_existing += 1
                 version_mismatches += int(record["version_mismatch"])
                 cursor.execute(
                     """
@@ -343,6 +402,9 @@ def load_target(
         "mapped_successfully": len(normalized_by_id),
         "inserted_new": inserted_new,
         "updated_existing": updated_existing,
+        "changed_existing": changed_existing,
+        "unchanged_existing": unchanged_existing,
+        "change_status_unknown": change_status_unknown,
         "observations_inserted": len(normalized_by_id),
         "developer_replies_stored": replies_stored,
         "failed_records": len(failures),
@@ -379,7 +441,7 @@ def record_failed_target(
 
 def run_once(
     connection: psycopg.Connection[Any], review_count: int, delay_seconds: float,
-    run_number: int,
+    run_number: int, targets_to_collect: tuple[dict[str, str], ...],
 ) -> dict[str, Any]:
     started_at = utc_now()
     with connection.transaction():
@@ -399,13 +461,13 @@ def run_once(
                 """,
                 (
                     version("google-play-scraper"), started_at, review_count,
-                    len(TARGETS), Decimal(str(delay_seconds)),
+                    len(targets_to_collect), Decimal(str(delay_seconds)),
                 ),
             )
             run_id = str(cursor.fetchone()[0])
 
     targets: list[dict[str, Any]] = []
-    for index, target in enumerate(TARGETS):
+    for index, target in enumerate(targets_to_collect):
         target_started = time.monotonic()
         try:
             targets.append(load_target(connection, run_id, target, review_count))
@@ -424,18 +486,21 @@ def run_once(
                     "mapped_successfully": 0,
                     "inserted_new": 0,
                     "updated_existing": 0,
+                    "changed_existing": 0,
+                    "unchanged_existing": 0,
+                    "change_status_unknown": 0,
                     "observations_inserted": 0,
                     "failed_records": 0,
                     "error_type": type(error).__name__,
                     "error_message": str(error),
                 }
             )
-        if index < len(TARGETS) - 1:
+        if index < len(targets_to_collect) - 1:
             time.sleep(delay_seconds)
 
     completed_targets = sum(target["status"] == "success" for target in targets)
     partial_targets = sum(target["status"] == "partial" for target in targets)
-    if completed_targets == len(TARGETS):
+    if completed_targets == len(targets_to_collect):
         status = "completed"
     elif completed_targets or partial_targets:
         status = "partial"
@@ -469,7 +534,8 @@ def run_once(
             key: sum(int(target.get(key, 0)) for target in targets)
             for key in (
                 "fetched", "mapped_successfully", "inserted_new",
-                "updated_existing", "observations_inserted", "failed_records",
+                "updated_existing", "changed_existing", "unchanged_existing",
+                "change_status_unknown", "observations_inserted", "failed_records",
             )
         },
     }
@@ -489,6 +555,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--runs", type=int, default=2)
     parser.add_argument("--delay-seconds", type=float, default=0.25)
     parser.add_argument("--repeat-delay-seconds", type=float, default=2.0)
+    parser.add_argument(
+        "--target-profile",
+        choices=tuple(TARGET_PROFILES),
+        default="baseline",
+        help="baseline keeps the original two-App test; recurring uses five Apps",
+    )
+    parser.add_argument(
+        "--summary-file",
+        type=Path,
+        default=SUMMARY_FILE,
+        help="aggregate JSON output path; relative paths resolve from the repository root",
+    )
     args = parser.parse_args()
     if not 1 <= args.reviews_per_app <= 200:
         parser.error("--reviews-per-app must be between 1 and 200")
@@ -503,12 +581,19 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    targets_to_collect = TARGET_PROFILES[args.target_profile]
+    summary_file = args.summary_file
+    if not summary_file.is_absolute():
+        summary_file = PROJECT_ROOT / summary_file
+    summary_file.parent.mkdir(parents=True, exist_ok=True)
     with psycopg.connect(args.dsn) as connection:
         runs = []
         for run_number in range(1, args.runs + 1):
             runs.append(
-                run_once(connection, args.reviews_per_app, args.delay_seconds, run_number)
+                run_once(
+                    connection, args.reviews_per_app, args.delay_seconds,
+                    run_number, targets_to_collect,
+                )
             )
             if run_number < args.runs:
                 time.sleep(args.repeat_delay_seconds)
@@ -524,7 +609,8 @@ def main() -> None:
         },
         "database": {"product": "PostgreSQL", "schema_version": "baseline-v1"},
         "configuration": {
-            "apps": list(TARGETS),
+            "target_profile": args.target_profile,
+            "apps": list(targets_to_collect),
             "reviews_requested_per_app": args.reviews_per_app,
             "runs": args.runs,
             "language": "en",
@@ -541,12 +627,12 @@ def main() -> None:
             "bounded convenience sample, not a representative population sample."
         ),
     }
-    SUMMARY_FILE.write_text(
+    summary_file.write_text(
         json.dumps(summary, indent=2, ensure_ascii=False, default=json_value) + "\n",
         encoding="utf-8",
     )
     print(json.dumps(summary, indent=2, ensure_ascii=False, default=json_value))
-    print(f"Aggregate summary: {SUMMARY_FILE}")
+    print(f"Aggregate summary: {summary_file}")
 
 
 if __name__ == "__main__":

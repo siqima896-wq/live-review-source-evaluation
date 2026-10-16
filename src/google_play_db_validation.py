@@ -54,14 +54,32 @@ def parse_args() -> argparse.Namespace:
             "postgresql://localhost:5433/sciencia_google_play",
         ),
     )
+    parser.add_argument(
+        "--run-summary",
+        type=Path,
+        default=RUN_SUMMARY_FILE,
+        help="run summary to reconcile; relative paths resolve from the repository root",
+    )
+    parser.add_argument(
+        "--validation-file",
+        type=Path,
+        default=VALIDATION_FILE,
+        help="validation JSON output; relative paths resolve from the repository root",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    if not RUN_SUMMARY_FILE.exists():
-        raise SystemExit(f"Run the integration first; missing {RUN_SUMMARY_FILE}")
-    run_summary = json.loads(RUN_SUMMARY_FILE.read_text(encoding="utf-8"))
+    run_summary_file = args.run_summary
+    validation_file = args.validation_file
+    if not run_summary_file.is_absolute():
+        run_summary_file = PROJECT_ROOT / run_summary_file
+    if not validation_file.is_absolute():
+        validation_file = PROJECT_ROOT / validation_file
+    if not run_summary_file.exists():
+        raise SystemExit(f"Run the integration first; missing {run_summary_file}")
+    run_summary = json.loads(run_summary_file.read_text(encoding="utf-8"))
     run_ids = [run["collection_run_id"] for run in run_summary["runs"]]
 
     with psycopg.connect(args.dsn) as connection:
@@ -265,6 +283,14 @@ def main() -> None:
         "valid_seen_time_order": invalid_seen_order == 0,
         "developer_reply_rows_present_when_expected": missing_expected_replies == 0,
         "run_counts_match_summary": all(run["passed"] for run in per_run),
+        "existing_review_change_counts_reconcile": all(
+            target.get("updated_existing", 0)
+            == target.get("changed_existing", 0)
+            + target.get("unchanged_existing", 0)
+            + target.get("change_status_unknown", 0)
+            for run in run_summary["runs"]
+            for target in run["targets"]
+        ),
         "all_constraint_probes_rejected": all(test["passed"] for test in constraint_tests),
     }
     validation = {
@@ -284,8 +310,8 @@ def main() -> None:
         "overall_status": "passed" if all(integrity_checks.values()) else "failed",
         "transaction_note": "All invalid-row probes and temporary rows were rolled back.",
     }
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    VALIDATION_FILE.write_text(
+    validation_file.parent.mkdir(parents=True, exist_ok=True)
+    validation_file.write_text(
         json.dumps(validation, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )

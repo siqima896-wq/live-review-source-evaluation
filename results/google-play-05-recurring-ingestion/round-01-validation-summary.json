@@ -1,0 +1,82 @@
+{
+  "validated_at": "2026-10-16T22:16:33.880377+00:00",
+  "database_version": "PostgreSQL 15.19 (Postgres.app) on aarch64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.102), 64-bit",
+  "validated_collection_run_ids": [
+    "d9114398-ef0b-48d9-81ff-5ab93031b3bb"
+  ],
+  "table_counts": {
+    "apps": 5,
+    "collection_runs": 3,
+    "collection_targets": 9,
+    "app_snapshots": 9,
+    "reviews": 1100,
+    "review_observations": 1200,
+    "developer_replies": 260
+  },
+  "per_run_reconciliation": [
+    {
+      "collection_run_id": "d9114398-ef0b-48d9-81ff-5ab93031b3bb",
+      "expected_targets": 5,
+      "stored_targets": 5,
+      "expected_observations": 1000,
+      "stored_observations": 1000,
+      "stored_snapshots": 5,
+      "passed": true
+    }
+  ],
+  "integrity_metrics": {
+    "duplicate_review_groups": 0,
+    "orphan_observations": 0,
+    "invalid_seen_time_order": 0,
+    "missing_expected_developer_replies": 0
+  },
+  "integrity_checks": {
+    "no_duplicate_reviews": true,
+    "no_orphan_observations": true,
+    "valid_seen_time_order": true,
+    "developer_reply_rows_present_when_expected": true,
+    "run_counts_match_summary": true,
+    "existing_review_change_counts_reconcile": true,
+    "all_constraint_probes_rejected": true
+  },
+  "constraint_tests": [
+    {
+      "name": "rating_range",
+      "passed": true,
+      "rejected_by": "reviews_rating_ck",
+      "sqlstate": "23514"
+    },
+    {
+      "name": "duplicate_review_identity",
+      "passed": true,
+      "rejected_by": "reviews_app_source_id_uq",
+      "sqlstate": "23505"
+    },
+    {
+      "name": "review_app_foreign_key",
+      "passed": true,
+      "rejected_by": "reviews_app_id_fkey",
+      "sqlstate": "23503"
+    },
+    {
+      "name": "run_time_order",
+      "passed": true,
+      "rejected_by": "collection_runs_finished_ck",
+      "sqlstate": "23514"
+    },
+    {
+      "name": "helpful_count_nonnegative",
+      "passed": true,
+      "rejected_by": "review_observations_helpful_ck",
+      "sqlstate": "23514"
+    },
+    {
+      "name": "observation_review_app_relationship",
+      "passed": true,
+      "rejected_by": "review_observations_target_fk",
+      "sqlstate": "23503"
+    }
+  ],
+  "overall_status": "passed",
+  "transaction_note": "All invalid-row probes and temporary rows were rolled back."
+}

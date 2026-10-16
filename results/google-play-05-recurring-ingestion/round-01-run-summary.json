@@ -1,0 +1,199 @@
+{
+  "test": "bounded live Google Play to PostgreSQL integration",
+  "source": "google_play",
+  "method": "third_party_open_source_scraper",
+  "official_google_api": false,
+  "collector": {
+    "name": "google-play-scraper",
+    "version": "1.2.7"
+  },
+  "database": {
+    "product": "PostgreSQL",
+    "schema_version": "baseline-v1"
+  },
+  "configuration": {
+    "target_profile": "recurring",
+    "apps": [
+      {
+        "package_name": "com.duolingo",
+        "display_name": "Duolingo: Language Lessons",
+        "category_name": "Education"
+      },
+      {
+        "package_name": "com.spotify.music",
+        "display_name": "Spotify: Music and Podcasts",
+        "category_name": "Music & Audio"
+      },
+      {
+        "package_name": "com.zhiliaoapp.musically",
+        "display_name": "TikTok",
+        "category_name": "Social"
+      },
+      {
+        "package_name": "com.discord",
+        "display_name": "Discord: Talk, Play, Hang Out",
+        "category_name": "Communication"
+      },
+      {
+        "package_name": "com.dd.doordash",
+        "display_name": "DoorDash: Food, Grocery, More",
+        "category_name": "Food & Drink"
+      }
+    ],
+    "reviews_requested_per_app": 200,
+    "runs": 1,
+    "language": "en",
+    "country": "US",
+    "sort": "newest"
+  },
+  "runs": [
+    {
+      "run_number": 1,
+      "collection_run_id": "d9114398-ef0b-48d9-81ff-5ab93031b3bb",
+      "status": "completed",
+      "started_at": "2026-10-16T22:16:05.520334+00:00",
+      "finished_at": "2026-10-16T22:16:10.749492+00:00",
+      "elapsed_seconds": 5.229,
+      "targets": [
+        {
+          "package_name": "com.duolingo",
+          "display_name": "Duolingo: Language Lessons",
+          "category_name": "Education",
+          "status": "success",
+          "requested": 200,
+          "fetched": 200,
+          "unique_review_ids_fetched": 200,
+          "mapped_successfully": 200,
+          "inserted_new": 200,
+          "updated_existing": 0,
+          "changed_existing": 0,
+          "unchanged_existing": 0,
+          "change_status_unknown": 0,
+          "observations_inserted": 200,
+          "developer_replies_stored": 0,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-15T12:02:52+00:00",
+          "newest_review_at": "2026-10-15T17:15:33+00:00",
+          "observed_window_days": 0.2171,
+          "elapsed_seconds": 0.608,
+          "failures": []
+        },
+        {
+          "package_name": "com.spotify.music",
+          "display_name": "Spotify: Music and Podcasts",
+          "category_name": "Music & Audio",
+          "status": "success",
+          "requested": 200,
+          "fetched": 200,
+          "unique_review_ids_fetched": 200,
+          "mapped_successfully": 200,
+          "inserted_new": 200,
+          "updated_existing": 0,
+          "changed_existing": 0,
+          "unchanged_existing": 0,
+          "change_status_unknown": 0,
+          "observations_inserted": 200,
+          "developer_replies_stored": 34,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-15T10:40:10+00:00",
+          "newest_review_at": "2026-10-15T17:15:25+00:00",
+          "observed_window_days": 0.2745,
+          "elapsed_seconds": 0.603,
+          "failures": []
+        },
+        {
+          "package_name": "com.zhiliaoapp.musically",
+          "display_name": "TikTok",
+          "category_name": "Social",
+          "status": "success",
+          "requested": 200,
+          "fetched": 200,
+          "unique_review_ids_fetched": 200,
+          "mapped_successfully": 200,
+          "inserted_new": 200,
+          "updated_existing": 0,
+          "changed_existing": 0,
+          "unchanged_existing": 0,
+          "change_status_unknown": 0,
+          "observations_inserted": 200,
+          "developer_replies_stored": 143,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-15T12:00:33+00:00",
+          "newest_review_at": "2026-10-15T17:15:11+00:00",
+          "observed_window_days": 0.2185,
+          "elapsed_seconds": 0.574,
+          "failures": []
+        },
+        {
+          "package_name": "com.discord",
+          "display_name": "Discord: Talk, Play, Hang Out",
+          "category_name": "Communication",
+          "status": "success",
+          "requested": 200,
+          "fetched": 200,
+          "unique_review_ids_fetched": 200,
+          "mapped_successfully": 200,
+          "inserted_new": 200,
+          "updated_existing": 0,
+          "changed_existing": 0,
+          "unchanged_existing": 0,
+          "change_status_unknown": 0,
+          "observations_inserted": 200,
+          "developer_replies_stored": 79,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-14T03:29:02+00:00",
+          "newest_review_at": "2026-10-15T17:08:36+00:00",
+          "observed_window_days": 1.5691,
+          "elapsed_seconds": 0.893,
+          "failures": []
+        },
+        {
+          "package_name": "com.dd.doordash",
+          "display_name": "DoorDash: Food, Grocery, More",
+          "category_name": "Food & Drink",
+          "status": "success",
+          "requested": 200,
+          "fetched": 200,
+          "unique_review_ids_fetched": 200,
+          "mapped_successfully": 200,
+          "inserted_new": 200,
+          "updated_existing": 0,
+          "changed_existing": 0,
+          "unchanged_existing": 0,
+          "change_status_unknown": 0,
+          "observations_inserted": 200,
+          "developer_replies_stored": 0,
+          "failed_records": 0,
+          "version_mismatch_warnings": 0,
+          "continuation_available": true,
+          "oldest_review_at": "2026-10-13T18:23:46+00:00",
+          "newest_review_at": "2026-10-15T17:10:28+00:00",
+          "observed_window_days": 1.9491,
+          "elapsed_seconds": 0.489,
+          "failures": []
+        }
+      ],
+      "totals": {
+        "fetched": 1000,
+        "mapped_successfully": 1000,
+        "inserted_new": 1000,
+        "updated_existing": 0,
+        "changed_existing": 0,
+        "unchanged_existing": 0,
+        "change_status_unknown": 0,
+        "observations_inserted": 1000,
+        "failed_records": 0
+      }
+    }
+  ],
+  "privacy_note": "Reviewer names and profile images were not retained. Review text is stored only in the local database and is not included in this summary.",
+  "sampling_note": "Newest English-language reviews returned for the US storefront are a bounded convenience sample, not a representative population sample."
+}

@@ -16,6 +16,8 @@ Store.
   categories, with aggregate quality, coverage, app, and category analyses. A
   two-App PostgreSQL integration test now also verifies live collection,
   transactional loading, repeat-run deduplication, and database constraints.
+  Round 1 of a five-App recurring-ingestion follow-up collected and reconciled
+  1,000 additional reviews; Round 2 is pending after a longer interval.
   The third-party method is not an official Google API and is not cleared for
   recurring production use.
 - Apple App Store: bounded legacy-feed sample and repeat completed (150 reviews
@@ -40,6 +42,7 @@ Store.
 - [Google Play database schema proposal](docs/google-play/google_play_database_schema.md)
 - [Google Play PostgreSQL schema](docs/google-play/google_play_schema.sql)
 - [Google Play database integration test](docs/google-play/google_play_integration_test.md)
+- [Google Play recurring-ingestion test](docs/google-play/google_play_recurring_ingestion_test.md)
 - [Apple App Store source assessment](docs/apple-app-store/apple_app_store_source_assessment.md)
 - [Apple App Store run summary](results/apple-app-store/run-summary.json)
 - [Combined app-store data tables](docs/app-store-comparison.md)
@@ -131,6 +134,33 @@ collector keeps review text only in the local database; committed JSON files
 contain aggregate evidence and record identifiers only for mapping failures.
 See the [integration report](docs/google-play/google_play_integration_test.md)
 for the completed run and interpretation.
+
+## Continue the Google Play recurring-ingestion test
+
+Round 1 uses the `recurring` target profile: Duolingo, Spotify, TikTok, Discord,
+and DoorDash, with 200 newest reviews per App. Aggregate evidence is written to
+a round-specific file so the original integration results are not overwritten.
+
+After approximately 48 hours, run:
+
+```bash
+.venv/bin/python src/google_play_db_integration.py \
+  --target-profile recurring \
+  --reviews-per-app 200 \
+  --runs 1 \
+  --delay-seconds 0.5 \
+  --summary-file results/google-play-05-recurring-ingestion/round-02-run-summary.json
+
+.venv/bin/python src/google_play_db_validation.py \
+  --run-summary results/google-play-05-recurring-ingestion/round-02-run-summary.json \
+  --validation-file results/google-play-05-recurring-ingestion/round-02-validation-summary.json
+```
+
+Do not recreate or clear the database between rounds. The collector classifies
+existing reviews as changed, unchanged, or unknown by comparing each new
+observation with its latest prior content hash. See the
+[recurring-ingestion report](docs/google-play/google_play_recurring_ingestion_test.md)
+for Round 1 results and the fixed test configuration.
 
 ## Run the TMDB sample pull
 
